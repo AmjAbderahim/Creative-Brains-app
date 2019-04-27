@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: roboto;
+}
+
+.background {
+    width: 100vw;
+    height: 100vh;
+}
+
+.choice {
+    width: 100%;
+    height: 100%;
+	background: url("../img/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+
+.logo-choice {
+    text-align: center;
+    font-size: 28px;
+    color: #fff;
+}
+
+.logo-choice > * {
+    margin-top: 30vh;
+}
+
+.btn {
+    width: 75vw;
+    padding: 11px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.button-group {
+    text-align: center;
+    margin-top: 20vh;
+}
+
+.button-group > * {
+    font-family: roboto;
+}
+
+.signup {
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+
+.log {
+    background: #fff;
+    color: rgba(26, 188, 156, 1);
+    cursor: pointer;
+}
+
+.signup:hover {
+    background: rgba(26, 188, 156, 1);
+    color: #fff;
+    border: 1px solid rgba(26, 188, 156, 1);
+}
+
+.log:hover {
+    background: rgba(26, 188, 156, 1);
+    color: #fff;
+    border: 1px solid rgba(26, 188, 156, 1);
+}
+
+.front {
+    z-index: 100;
+}
+
+.login {
+    width: 100%;
+    height: 100%;
+    background: url("../img/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.logo-login {
+    text-align: center;
+    color: #fff;
+}
+
+.logo-login > * {
+    margin-top: 20vh;
+}
+
+.login > form {
+    width: 75vw;
+    margin: 0 auto;
+    margin-top: 14vh;
+}
+
+.input {
+    width: 100%;
+    height: 2vh;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
+    border: none;
+    border-bottom: 2px solid #fff;
+    background-color: transparent;
+    font-size: 20px;
+    color: #fff;
+}
+
+.label {
+    font-size: 12px;
+    color: #fff;
+}
+
+.login > form > a {
+    float: right;
+    margin-top: 2vh;
+    font-size: 12px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.login > form > button {
+    font-family: roboto;
+    margin-top: 2vh;
+	background-color: rgba(26, 188, 156, 1);
+	color: #fff;
+	border: 1px solid rgba(26, 188, 156, 1);
+}
+
+.login > form > button:hover {
+	background-color: #fff;
+	color: rgba(26, 188, 156, 1);
+	border: 1px solid #fff;
+}
