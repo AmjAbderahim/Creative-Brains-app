@@ -148,6 +148,7 @@ body {
     background-color: transparent;
     font-size: 20px;
     color: #fff;
+    outline:0;
 }
 
 .label {
