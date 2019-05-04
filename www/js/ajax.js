@@ -7,12 +7,12 @@ function doGet (url,successFunction,errorFunction) {
 		error:errorFunction
 	});
 }
-function doPost (url,successFunction,errorFunction,data) {
+function doPost (url,data,successFunction,errorFunction) {
 	$.ajax({
 		type:'POST',
 		url:url,
 		data:data,
 		success:successFunction,
 		error:errorFunction
-	})
+	});
 }
