@@ -1,3 +1,6 @@
 <?php
- $con = mysqli_connect("localhost","root","","dtravel") or die ("could not connect database");
+
+	header("Access-Control-Allow-Origin: *");
+    $con = mysqli_connect("localhost","root","","cbdb") or die ("could not connect database");
+
 ?>

@@ -5,9 +5,12 @@
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
         <title>Creative Brains</title>
         <link rel="stylesheet" href="css/all.min.css">
+        <link rel="stylesheet" href="css/loader.css">
         <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript " src="js/jquery-3.2.1.min.js"></script>
         <script type="text/javascript " src="js/controller.js"></script>
+        <script type="text/javascript " src="js/ajax.js"></script>
+        <script type="text/javascript " src="js/SignUp.js"></script>
         <!--Api JS for alerts(Messages Error ans succes...) check this link for documentation : https://sweetalert.js.org/guides/-->
         <script type="text/javascript " src="js/sweetalert.js"></script>
 
@@ -27,6 +30,25 @@
                 <div class="button-group">
                     <button class="btn siup" onclick='next("choice", "signup")'>SIGN UP</button><br><br>
                     <button class="btn log" onclick='next("choice", "login")'>LOGIN</button>            
+                </div>
+            </div>
+            <div class="loader">
+                <div class="loader-inner">
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
                 </div>
             </div>
 
@@ -60,7 +82,7 @@
                 <div class="logo-login logo-signup">
                     <img src="img/logo.png" width="120px" height="120px"><br>
                 </div>
-                <form>
+                <form id="signUpForm">
                     <div class="input-icon">
                         <i class="fas fa-user"></i>
                         <label for="username-signup" class="label">USERNAME</label>
@@ -81,9 +103,9 @@
                         <label for="confirm-password" class="label">CONFIRM PASSWORD</label>
                         <input type="password" class="input" name="confirm-password" id="confirm-password">
                     </div> <br>
-                    <input type="button" class="btn log" onclick='next("signup", "genre-choice")' value="SIGN UP"/><br>
+                    <input type="button" class="btn log" onclick='signup.submit()' value="SIGN UP"/><br>
                     <div class="already">
-                        already user? <a class="link" onclick='next("signup", "login")'>click here</a>
+                        already user? <a class="link" onclick='signup.submit()'>click here</a>
                     </div>
                 </form>
             </div>
@@ -258,4 +280,5 @@
             </div>
         </div>
      </body>
+     <script type="text/javascript " src="js/Main.js"></script>
 </html>

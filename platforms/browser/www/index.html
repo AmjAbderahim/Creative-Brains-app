@@ -5,13 +5,14 @@
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
         <title>Creative Brains</title>
         <link rel="stylesheet" href="css/all.min.css">
+        <link rel="stylesheet" href="css/loader.css">
         <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript " src="js/jquery-3.2.1.min.js"></script>
         <script type="text/javascript " src="js/controller.js"></script>
-	    <!--Api JS for alerts(Messages Error ans succes...) check this link for documentation : https://sweetalert.js.org/guides/-->
-		<script type="text/javascript " src="js/sweetalert.js"></script>
         <script type="text/javascript " src="js/ajax.js"></script>
-        <script type="text/javascript " src="js/displayDataJson.js"></script>
+        <script type="text/javascript " src="js/SignUp.js"></script>
+        <!--Api JS for alerts(Messages Error ans succes...) check this link for documentation : https://sweetalert.js.org/guides/-->
+        <script type="text/javascript " src="js/sweetalert.js"></script>
 
     </head>
     <body>
@@ -20,22 +21,43 @@
             <!-- LOGIN & SIGNUP CHOICE-->
             <div class="choice" id="choice">
                 <div class="logo-choice">
-                    <img src="img/logo.png" width="110px" height="110px"><br>
-                    <h2>Creative Brains</h2>
-                    <p>Everything you can imagine is real</p>
+                    <img src="img/logo.png" width="110px" height="110px">
+                    <p>
+                        <span>Creative Brains</span> <br>
+                        Everything you can imagine is real
+                    </p>
                 </div>
                 <div class="button-group">
                     <button class="btn siup" onclick='next("choice", "signup")'>SIGN UP</button><br><br>
-                    <button class="btn log" onclick='next("choice", "login")'>LOG IN</button>            
+                    <button class="btn log" onclick='next("choice", "login")'>LOGIN</button>            
                 </div>
             </div>
-            <!-- 009C8E  FFDB6A -->
+            <div class="loader">
+                <div class="loader-inner">
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                </div>
+            </div>
+
             <!-- LOGIN-->
             <div class="login" id="login">
                 <div class="logo-login">
                     <img src="img/logo.png" width="120px" height="120px"><br>
                 </div>
-                <form action="#">
+                <form>
                     <div class="input-icon">
                         <i class="fas fa-user"></i>
                         <label for="username" class="label">USERNAME</label>
@@ -46,11 +68,9 @@
                         <label for="password" class="label">PASSWORD</label>
                         <input type="password" class="input" name="password" id="password">
                     </div>
-                    <div id="toDisplay">
-                        
-                    </div>
-                    <a href="#">Forget Password?</a><br><br>
-                    <button class="btn log" onclick="displayData()">LOGIN</button><br>
+
+                    <a onclick='next("login", "reset-password")'>Forget Password?</a><br><br>
+                    <input type="button" class="btn log" onclick='next("login", "home")' value="LOGIN"></button><br>
                     <div class="already">
                         not on Creative Brains yet? <a class="link" onclick='next("login", "signup")'>sign up</a>
                     </div>
@@ -62,7 +82,7 @@
                 <div class="logo-login logo-signup">
                     <img src="img/logo.png" width="120px" height="120px"><br>
                 </div>
-                <form>
+                <form id="signUpForm">
                     <div class="input-icon">
                         <i class="fas fa-user"></i>
                         <label for="username-signup" class="label">USERNAME</label>
@@ -83,13 +103,182 @@
                         <label for="confirm-password" class="label">CONFIRM PASSWORD</label>
                         <input type="password" class="input" name="confirm-password" id="confirm-password">
                     </div> <br>
-                    <button class="btn log">SIGN UP</button><br>
+                    <input type="button" class="btn log" onclick='signup.submit()' value="SIGN UP"/><br>
                     <div class="already">
-                        already user? <a class="link" onclick='next("signup", "login")'>click here</a>
+                        already user? <a class="link" onclick='signup.submit()'>click here</a>
                     </div>
                 </form>
             </div>
+
+            <!-- RESET PASSWORD-->
+            <div class="reset-password login" id="reset-password">
+                <div class="logo-login">
+                    <img src="img/logo.png" width="120px" height="120px"><br>
+                </div>
+                <form>
+                    <div class="input-icon">
+                        <i class="fas fa-envelope"></i>
+                        <label for="email-reset" class="label">EMAIL</label>
+                        <input type="email" class="input" name="email-reset" id="email-reset">
+                    </div> <br>
+                    <button class="btn log">RESET</button><br>
+                    <div class="already">
+                        back to <a class="link" onclick='next("reset-password", "login")'>login</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Creations Genre choice -->
+            <div class="genre-choice hidden" id="genre-choice">
+                <header>
+                    <span class="q">What kind of creations you like?</span>
+                    <p class="s-title">Choose one to start</p>
+                </header>
+                <div class="genres">
+                    <table>
+                        <tr>
+                            <td class="cell">
+                                <div class="genre" id="genre-01">
+                                    <div>
+                                        <span>Sound</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cell" >
+                                <div class="genre" id="genre-02">
+                                    <div>
+                                        <span>Photography</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell">
+                                <div class="genre" id="genre-03">
+                                    <div>
+                                        <span>Drawing</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cell" >
+                                <div class="genre" id="genre-04">
+                                    <div>
+                                        <span>Design</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell">
+                                <div class="genre" id="genre-05">
+                                    <div>
+                                        <span>Video</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cell" >
+                                <div class="genre" id="genre-06">
+                                    <div>
+                                        <span>Painting</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell">
+                                <div class="genre" id="genre-07">
+                                    <div>
+                                        <span>Idea</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cell" >
+                                <div class="genre" id="genre-08">
+                                    <div>
+                                        <span>Writing</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell">
+                                <div class="genre" id="genre-09">
+                                    <div>
+                                        <span>Motivation</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cell" >
+                                <div class="genre" id="genre-10">
+                                    <div>
+                                        <span>Travel</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell">
+                                <div class="genre" id="genre-11">
+                                    <div>
+                                        <span>Science</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cell" >
+                                <div class="genre" id="genre-12">
+                                    <div>
+                                        <span>Books</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell">
+                                <div class="genre" id="genre-13">
+                                    <div>
+                                        <span>Health</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cell" >
+                                <div class="genre" id="genre-14">
+                                    <div>
+                                        <span>Architecture</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="chosing-genre">
+                        <button class="btn log" onclick='next("genre-choice", "home")'>CONTINUE</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home -->
+            <div class="home hidden" id="home">
+                <div class="header">
+                    <span class="menu-icon"><i class="fas fa-bars" onclick="menu()"></i></span>
+                    <span class="header-title">Creations</span>
+                    <span class="plus-icon"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="float-menu hidden">
+                    <span>Creations</span>
+                    <span>Profile</span>
+                    <span>Setting</span>
+                    <span>Logout</span>
+                </div>
+                <div class="post">
+                    <header>
+                        <div class="uimg">
+                            <img src="img/static_img/user1.png" width="30px" height="30px">
+                        </div>
+                        <span>maha_el</span>
+                        <span class="time">2h</span>
+                    </header>
+                </div>
+            </div>
         </div>
-        <script type="text/javascript " src="cordova.js"></script>
-    </body>
+     </body>
+     <script type="text/javascript " src="js/Main.js"></script>
 </html>

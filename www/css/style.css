@@ -3,7 +3,9 @@
     src: url("../fonts/Montserrat-Regular.ttf");
 }
 
-
+.swal2-popup {
+    font-size: 2rem;
+}
 @font-face {
     font-family: "Roboto";
     src: url("../fonts/Roboto-Medium.ttf");
