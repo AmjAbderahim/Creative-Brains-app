@@ -3,26 +3,32 @@
     src: url("../fonts/Montserrat-Regular.ttf");
 }
 
-@font-face {
-    font-family: "Playfair";
-    src: url("../fonts/PlayfairDisplay-Regular.ttf");
-}
 
 @font-face {
     font-family: "Roboto";
-    src: url("../fonts/Roboto-Regular.ttf");
+    src: url("../fonts/Roboto-Medium.ttf");
+}
+
+@font-face {
+    font-family: "RobotoBold";
+    src: url("../fonts/Roboto-Bold.ttf");
+}
+
+@font-face {
+    font-family: "AngelineVintage";
+    src: url("../fonts/Angeline Vintage_Demo.ttf");
 }
 
 body {
     margin: 0;
     padding: 0;
     font-family: "Roboto";
-    background-color: #009C8E;
 }
 
 .background {
     width: 100vw;
     height: 100vh;
+    background-color: #009C8E;
 }
 
 .choice {
@@ -42,10 +48,16 @@ body {
     margin-top: 30vh;
 }
 
-.logo-choice > h2 {
-    margin-top: 35px;
-    font-family: "Playfair";
+.logo-choice > p {
+    margin-top: 5vh;
+    line-height: 6vh;
 }
+
+.logo-choice > p > span {
+    font-family: "AngelineVintage";
+    font-size: 36px;
+}
+
 
 .logo-choice > img {
     -webkit-filter: drop-shadow(5px 5px 5px #222);
@@ -97,18 +109,6 @@ button:focus{
     border: 1px solid #009C8E;
 }
 
-.front {
-    z-index: 100;
-}
-
-.back1 {
-    z-index: 0;
-}
-
-.back2 {
-    z-index: 50;
-}
-
 .hidden {
     display: none;
 }
@@ -138,6 +138,10 @@ button:focus{
     width: 75vw;
     margin: 0 auto;
     margin-top: 14vh;
+}
+
+.login > form > a {
+    cursor: pointer;
 }
 
 .input {
@@ -182,7 +186,7 @@ button:focus{
     color: #fff;
 }
 
-.login > form > button {
+.login > form > .btn {
     font-family: "Roboto";
     margin-top: 2vh;
 	background-color: #fff;
@@ -190,7 +194,7 @@ button:focus{
 	border: 1px solid #fff;
 }
 
-.login > form > button:hover {
+.login > form > .btn:hover {
 	background-color: #EA5F40;
 	color: #fff;
 	border: 1px solid #EA5F40;
@@ -232,4 +236,257 @@ button:focus{
     color: #fff;
     text-decoration: underline;
     cursor: pointer;
+}
+
+.genre-choice > header {
+    padding-top: 5vh;
+}
+
+.genre-choice > header > .q {
+    font-size: 28px;
+}
+
+.genre-choice > header > .s-title {
+    font-size: 14px;
+    color: #bbbbbb;
+}
+
+table {
+    margin-bottom: 14vh;
+}
+
+.cell {
+    width: 200px;
+}
+
+.genre {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.genre > div > span {
+    color: #fff;
+    text-align: center;
+}
+
+#genre-01 {
+    background-image: url("../img/genres/sound.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#genre-02 {
+    background-image: url("../img/genres/photography.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#genre-03 {
+    background-image: url("../img/genres/drawing.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#genre-04 {
+    background-image: url("../img/genres/design.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#genre-05 {
+    background-image: url("../img/genres/video.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#genre-06 {
+    background-image: url("../img/genres/painting.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#genre-07 {
+    background-image: url("../img/genres/idea.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#genre-08 {
+    background-image: url("../img/genres/writing.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#genre-09 {
+    background-image: url("../img/genres/motivation.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#genre-10 {
+    background-image: url("../img/genres/travel.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#genre-11 {
+    background-image: url("../img/genres/science.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#genre-12 {
+    background-image: url("../img/genres/books.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#genre-13 {
+    background-image: url("../img/genres/health.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#genre-14 {
+    background-image: url("../img/genres/architecture.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.genre > div {
+    width: 100%;
+    border-radius: 10px;
+    padding: 6vh 0;
+    cursor: pointer;
+}
+
+.genre:hover {
+    opacity: 0.3;
+}
+
+#genre-01 > div {
+    background-color: rgba(0, 156, 142, 0.8);
+}
+
+#genre-02 > div {
+    background-color: rgba(239, 82, 133, 0.8);
+}
+
+#genre-03 > div {
+    background-color: rgba(254, 238, 125, 0.8);
+}
+
+#genre-04 > div {
+    background-color: rgba(165, 223, 249, 0.8);
+}
+
+#genre-05 > div {
+    background-color: rgba(73, 10, 61, 0.8);
+}
+
+#genre-06 > div {
+    background-color: rgba(252, 157, 154, 0.8);
+}
+
+#genre-07 > div {
+    background-color: rgba(58, 197, 105, 0.8);
+}
+
+#genre-08 > div {
+    background-color: rgba(109, 129, 156, 0.8);
+}
+
+#genre-09 > div {
+    background-color: rgba(238, 37, 96, 0.8);
+}
+
+#genre-10 > div {
+    background-color: rgba(0, 223, 252, 0.8);
+}
+
+#genre-11 > div {
+    background-color: rgba(38, 57, 89, 0.8);
+}
+
+#genre-12 > div {
+    background-color: rgba(166, 23, 45, 0.8);
+}
+
+#genre-13 > div {
+    background-color: rgba(0, 128, 255, 0.8);
+}
+
+#genre-14 > div {
+    background-color: rgba(79, 149, 59, 0.8);
+}
+.chosing-genre {
+    width: 100%;
+    height: 6vh;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    padding: 3vh;
+}
+
+.chosing-genre > button {
+    background-color: #009C8E;
+    border: #009C8E;
+    color: #fff;
+    font-family: "Roboto";
+}
+
+.home, .genre-choice{
+    width: 90%;
+    height: 100%;
+    background-color: #fff;
+    padding: 0 5%;
+}
+
+.header {
+    width: 100%;
+    height: 8vh;
+}
+
+.header > span {
+    display: inline-block;
+    padding: 14px 0;
+}
+
+.menu-icon, .plus-icon {
+    width: 5%;
+    text-align: center;
+}
+
+.header-title {
+    font-size: 20px;
+    width: 87%;
+    text-align: center;
+}
+
+.post > header {
+    padding: 7px 0;
+   
+}
+
+.uimg > img {
+    border-radius: 50%;
+}
+
+.post > header > span {
+    width: 77%;
+    font-size: 10px;
+    font-family: "RobotoBold";
+    display: inline-block;
+    padding: 10px 10px;
+}
+
+.uimg {
+    float: left;
+}
+
+.time {
+    width: 5% !important;
+    padding: 10px 0px !important;
 }
