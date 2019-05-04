@@ -81,7 +81,7 @@
                         <label for="confirm-password" class="label">CONFIRM PASSWORD</label>
                         <input type="password" class="input" name="confirm-password" id="confirm-password">
                     </div> <br>
-                    <input type="button" class="btn log" onclick='next("signup", "genre-choice")' value="SIGN UP"/><br>
+                    <input type="button" class="btn log" onclick='next("signup", "verify")' value="SIGN UP"/><br>
                     <div class="already">
                         already user? <a class="link" onclick='next("signup", "login")'>click here</a>
                     </div>
@@ -102,6 +102,23 @@
                     <button class="btn log">RESET</button><br>
                     <div class="already">
                         back to <a class="link" onclick='next("reset-password", "login")'>login</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Verify-->
+            <div class="verify reset-password login" id="verify">
+                <div class="logo-login">
+                    <img src="img/logo.png" width="120px" height="120px"><br>
+                </div>
+                <form>
+                    <div class="input-icon">
+                        <label for="codeVerification" class="label2">Enter the code that was send to you</label>
+                        <input type="text" size="6" class="input2" name="codeVerification" id="codeVerification">
+                    </div> <br>
+                    <input type="button" class="btn log" onclick='next("verify", "genre-choice")' value="VERIFY"/><br>
+                    <div class="already">
+                        back to <a class="link" onclick='next("verify", "signup")'>signup</a>
                     </div>
                 </form>
             </div>

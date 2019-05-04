@@ -69,8 +69,7 @@ body {
     padding: 11px;
     border: 1px solid #fff;
     border-radius: 20px;
-    -webkit-filter: drop-shadow(5px 5px 5px #222);
-    filter: drop-shadow(0px 10px 10px rgb(119, 119, 119));
+    cursor: pointer;
 }
 
 .button-group {
@@ -83,30 +82,33 @@ body {
 }
 
 .siup {
-    background-color: #EA5F40;
+    background-color: #7b50c8;
     color: #fff;
-    border: 1px solid #EA5F40;
+    border: 1px solid #7b50c8;
+    border-bottom: 3px solid rgb(92, 92, 92);
     cursor: pointer;
 }
 
 .log {
     background: #fff;
     color: #009C8E;
-}
-button:focus{
-	outline:none;
+    border: 1px solid #009C8E;
+    border-bottom: 3px solid rgb(128, 128, 128);
 }
 
+
 .siup:hover {
-    background: #fff;
-    color: #EA5F40;
-    border: 1px solid #fff;
+    background: #6340a0;
+    color: #fff;
+    border: 1px solid #6340a0;
+    border-bottom: 3px solid rgb(92, 92, 92);
 }
 
 .log:hover {
-    background: #009C8E;
-    color: #fff;
+    background: rgb(228, 228, 228);
+    color: #009C8E;
     border: 1px solid #009C8E;
+    border-bottom: 3px solid rgb(92, 92, 92);
 }
 
 .hidden {
@@ -189,15 +191,17 @@ button:focus{
 .login > form > .btn {
     font-family: "Roboto";
     margin-top: 2vh;
-	background-color: #fff;
-	color: #009C8E;
-	border: 1px solid #fff;
+    background-color: #7b50c8;
+    color: #fff;
+    border: 1px solid #7b50c8;
+    border-bottom: 3px solid rgb(92, 92, 92);
 }
 
 .login > form > .btn:hover {
-	background-color: #EA5F40;
-	color: #fff;
-	border: 1px solid #EA5F40;
+    background: #6340a0;
+    color: #fff;
+    border: 1px solid #6340a0;
+    border-bottom: 3px solid rgb(92, 92, 92);
 }
 
 .logo-login {
@@ -430,10 +434,18 @@ table {
 }
 
 .chosing-genre > button {
-    background-color: #009C8E;
-    border: #009C8E;
+    background-color: #7b50c8;
     color: #fff;
+    border: 1px solid #7b50c8;
+    border-bottom: 3px solid rgb(92, 92, 92);
     font-family: "Roboto";
+}
+
+.chosing-genre > button:hover {
+    background: #6340a0;
+    color: #fff;
+    border: 1px solid #6340a0;
+    border-bottom: 3px solid rgb(92, 92, 92);
 }
 
 .fa-check-circle {
@@ -545,4 +557,28 @@ table {
 
 .float-menu > div > span > i {
     margin-right: 2vh;
+}
+
+.verify {
+    text-align: center;
+}
+
+.label2 {
+    color: #fff;
+}
+
+.input2 {
+    width: 26vw;
+    height: 5vh;
+    border: 2px solid #6340a0;
+    border-radius: 10px;
+    margin-top: 3vh;
+    font-size: 28px;
+    color: #6340a0;
+    text-indent: 0px !important;
+    padding: 0 5vw;
+}
+
+.verify > form > .btn {
+    margin-top: 0;
 }
