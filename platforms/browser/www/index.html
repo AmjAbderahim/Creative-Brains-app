@@ -11,6 +11,7 @@
         <script type="text/javascript " src="js/controller.js"></script>
         <script type="text/javascript " src="js/ajax.js"></script>
         <script type="text/javascript " src="js/SignUp.js"></script>
+        <script type="text/javascript " src="js/User.js"></script>
         <!--Api JS for alerts(Messages Error ans succes...) check this link for documentation : https://sweetalert.js.org/guides/-->
         <script type="text/javascript " src="js/sweetalert.js"></script>
 
@@ -104,9 +105,8 @@
                         <input type="password" class="input" name="confirm-password" id="confirm-password">
                     </div> <br>
                     <input type="button" class="btn log" onclick='signup.submit()' value="SIGN UP"/><br>
-                    <input type="button" class="btn log" onclick='next("signup", "verify")' value="SIGN UP"/><br>
                     <div class="already">
-                        already user? <a class="link" onclick='signup.submit()'>click here</a>
+                        already user? <a class="link" onclick='next("signup", "login")'>click here</a>
                     </div>
                 </form>
             </div>
@@ -136,10 +136,10 @@
                 </div>
                 <form>
                     <div class="input-icon">
-                        <label for="codeVerification" class="label2">Enter the code that was send to you</label>
+                        <label for="codeVerification" class="label2">Enter the code</label>
                         <input type="text" size="6" class="input2" name="codeVerification" id="codeVerification">
                     </div> <br>
-                    <input type="button" class="btn log" onclick='next("verify", "genre-choice")' value="VERIFY"/><br>
+                    <input type="button" class="btn log" onclick='signup.verify()' value="VERIFY"/><br>
                     <div class="already">
                         back to <a class="link" onclick='next("verify", "signup")'>signup</a>
                     </div>
@@ -149,123 +149,119 @@
             <!-- Creations Genre choice -->
             <div class="genre-choice hidden" id="genre-choice">
                 <header>
-                    <span class="q">What kind of creations you like?</span><br>
-                    <span class="s-title">Choose one to start</span>
-                    <span id="counter"></span>
-                    <div id="myProgress">
-                        <div id="myBar"></div>
-                    </div><br>
+                    <span class="q">What kind of creations you like?</span>
+                    <p class="s-title">Choose one to start</p>
                 </header>
                 <div class="genres">
                     <table>
                         <tr>
                             <td class="cell">
-                                <div class="genre" id="sound" onclick='selectGenre("sound")'>
+                                <div class="genre" id="genre-01">
                                     <div>
-                                        <span>sound</span>
+                                        <span>Sound</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="cell" >
-                                <div class="genre" id="photography" onclick='selectGenre("photography")'>
+                                <div class="genre" id="genre-02">
                                     <div>
-                                        <span>photography</span>
+                                        <span>Photography</span>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td class="cell">
-                                <div class="genre" id="drawing" onclick='selectGenre("drawing")'>
+                                <div class="genre" id="genre-03">
                                     <div>
-                                        <span>drawing</span>
+                                        <span>Drawing</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="cell" >
-                                <div class="genre" id="design" onclick='selectGenre("design")'>
+                                <div class="genre" id="genre-04">
                                     <div>
-                                        <span>design</span>
+                                        <span>Design</span>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td class="cell">
-                                <div class="genre" id="video" onclick='selectGenre("video")'>
+                                <div class="genre" id="genre-05">
                                     <div>
-                                        <span>video</span>
+                                        <span>Video</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="cell" >
-                                <div class="genre" id="painting" onclick='selectGenre("painting")'>
+                                <div class="genre" id="genre-06">
                                     <div>
-                                        <span>painting</span>
+                                        <span>Painting</span>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td class="cell">
-                                <div class="genre" id="idea" onclick='selectGenre("idea")'>
+                                <div class="genre" id="genre-07">
                                     <div>
-                                        <span>idea</span>
+                                        <span>Idea</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="cell" >
-                                <div class="genre" id="writing" onclick='selectGenre("writing")'>
+                                <div class="genre" id="genre-08">
                                     <div>
-                                        <span>writing</span>
+                                        <span>Writing</span>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td class="cell">
-                                <div class="genre" id="motivation" onclick='selectGenre("motivation")'>
+                                <div class="genre" id="genre-09">
                                     <div>
-                                        <span>motivation</span>
+                                        <span>Motivation</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="cell" >
-                                <div class="genre" id="travel" onclick='selectGenre("travel")'>
+                                <div class="genre" id="genre-10">
                                     <div>
-                                        <span>travel</span>
+                                        <span>Travel</span>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td class="cell">
-                                <div class="genre" id="science" onclick='selectGenre("science")'>
+                                <div class="genre" id="genre-11">
                                     <div>
-                                        <span>science</span>
+                                        <span>Science</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="cell" >
-                                <div class="genre" id="books" onclick='selectGenre("books")'>
+                                <div class="genre" id="genre-12">
                                     <div>
-                                        <span>books</span>
+                                        <span>Books</span>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td class="cell">
-                                <div class="genre" id="health" onclick='selectGenre("health")'>
+                                <div class="genre" id="genre-13">
                                     <div>
-                                        <span>health</span>
+                                        <span>Health</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="cell" >
-                                <div class="genre" id="architecture" onclick='selectGenre("architecture")'>
+                                <div class="genre" id="genre-14">
                                     <div>
-                                        <span>architecture</span>
+                                        <span>Architecture</span>
                                     </div>
                                 </div>
                             </td>
@@ -280,28 +276,24 @@
             <!-- Home -->
             <div class="home hidden" id="home">
                 <div class="header">
-                    <span class="menu-icon"><i class="fas fa-bars" onclick="showMenu()"></i></span>
-                    <span class="header-title" id="header-title">Creations</span>
+                    <span class="menu-icon"><i class="fas fa-bars" onclick="menu()"></i></span>
+                    <span class="header-title">Creations</span>
                     <span class="plus-icon"><i class="fas fa-plus"></i></span>
                 </div>
-                <div class="float-menu" id="float-menu">
-                    <div>
-                        <span onclick='switchPageTo("Creations")'><i class="fas fa-home"></i>Creations</span>
-                        <span onclick='switchPageTo("Profile")'><i class="fas fa-user"></i>Profile</span>
-                        <span onclick='switchPageTo("Setting")'><i class="fas fa-cog"></i>Setting</span>
-                        <span onclick='logout()'><i class="fas fa-sign-out-alt"></i>Logout</span>
-                    </div>
+                <div class="float-menu hidden">
+                    <span>Creations</span>
+                    <span>Profile</span>
+                    <span>Setting</span>
+                    <span>Logout</span>
                 </div>
-                <div id="Creations">
-                    <div class="post" id="post">
-                        <header>
-                            <div class="uimg">
-                                <img src="img/static_img/user1.png" width="30px" height="30px">
-                            </div>
-                            <span>maha_el</span>
-                            <span class="time">2h</span>
-                        </header>
-                    </div>
+                <div class="post">
+                    <header>
+                        <div class="uimg">
+                            <img src="img/static_img/user1.png" width="30px" height="30px">
+                        </div>
+                        <span>maha_el</span>
+                        <span class="time">2h</span>
+                    </header>
                 </div>
             </div>
         </div>

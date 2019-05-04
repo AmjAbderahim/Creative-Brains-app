@@ -1,5 +1,6 @@
 var serverSideUrl = "http://192.168.1.104/Creative/www/php/";
 function doGet (uri,successFunction,errorFunction) {
+	showLoader();
 	$.ajax({
 		type:'GET',
 		url:serverSideUrl+uri,
@@ -8,6 +9,7 @@ function doGet (uri,successFunction,errorFunction) {
 	});
 }
 function doPost (uri,data,successFunction,errorFunction) {
+	showLoader();
 	$.ajax({
 		type:'POST',
 		url:serverSideUrl+uri,
