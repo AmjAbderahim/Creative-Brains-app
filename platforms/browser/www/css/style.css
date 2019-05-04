@@ -71,8 +71,7 @@ body {
     padding: 11px;
     border: 1px solid #fff;
     border-radius: 20px;
-    -webkit-filter: drop-shadow(5px 5px 5px #222);
-    filter: drop-shadow(0px 10px 10px rgb(119, 119, 119));
+    cursor: pointer;
 }
 
 .button-group {
@@ -85,30 +84,33 @@ body {
 }
 
 .siup {
-    background-color: #EA5F40;
+    background-color: #7b50c8;
     color: #fff;
-    border: 1px solid #EA5F40;
+    border: 1px solid #7b50c8;
+    border-bottom: 3px solid rgb(92, 92, 92);
     cursor: pointer;
 }
 
 .log {
     background: #fff;
     color: #009C8E;
-}
-button:focus{
-	outline:none;
+    border: 1px solid #009C8E;
+    border-bottom: 3px solid rgb(128, 128, 128);
 }
 
+
 .siup:hover {
-    background: #fff;
-    color: #EA5F40;
-    border: 1px solid #fff;
+    background: #6340a0;
+    color: #fff;
+    border: 1px solid #6340a0;
+    border-bottom: 3px solid rgb(92, 92, 92);
 }
 
 .log:hover {
-    background: #009C8E;
-    color: #fff;
+    background: rgb(228, 228, 228);
+    color: #009C8E;
     border: 1px solid #009C8E;
+    border-bottom: 3px solid rgb(92, 92, 92);
 }
 
 .hidden {
@@ -191,15 +193,17 @@ button:focus{
 .login > form > .btn {
     font-family: "Roboto";
     margin-top: 2vh;
-	background-color: #fff;
-	color: #009C8E;
-	border: 1px solid #fff;
+    background-color: #7b50c8;
+    color: #fff;
+    border: 1px solid #7b50c8;
+    border-bottom: 3px solid rgb(92, 92, 92);
 }
 
 .login > form > .btn:hover {
-	background-color: #EA5F40;
-	color: #fff;
-	border: 1px solid #EA5F40;
+    background: #6340a0;
+    color: #fff;
+    border: 1px solid #6340a0;
+    border-bottom: 3px solid rgb(92, 92, 92);
 }
 
 .logo-login {
@@ -251,6 +255,8 @@ button:focus{
 .genre-choice > header > .s-title {
     font-size: 14px;
     color: #bbbbbb;
+    display: inline-block;
+    margin: 2vh 0;
 }
 
 table {
@@ -273,85 +279,85 @@ table {
     text-align: center;
 }
 
-#genre-01 {
+#sound {
     background-image: url("../img/genres/sound.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#genre-02 {
+#photography {
     background-image: url("../img/genres/photography.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#genre-03 {
+#drawing {
     background-image: url("../img/genres/drawing.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#genre-04 {
+#design {
     background-image: url("../img/genres/design.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#genre-05 {
+#video {
     background-image: url("../img/genres/video.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#genre-06 {
+#painting {
     background-image: url("../img/genres/painting.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#genre-07 {
+#idea {
     background-image: url("../img/genres/idea.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#genre-08 {
+#writing {
     background-image: url("../img/genres/writing.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#genre-09 {
+#motivation {
     background-image: url("../img/genres/motivation.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#genre-10 {
+#travel {
     background-image: url("../img/genres/travel.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#genre-11 {
+#science {
     background-image: url("../img/genres/science.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#genre-12 {
+#books {
     background-image: url("../img/genres/books.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#genre-13 {
+#health {
     background-image: url("../img/genres/health.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#genre-14 {
+#architecture {
     background-image: url("../img/genres/architecture.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -364,65 +370,62 @@ table {
     cursor: pointer;
 }
 
-.genre:hover {
-    opacity: 0.3;
-}
-
-#genre-01 > div {
+#sound > div {
     background-color: rgba(0, 156, 142, 0.8);
 }
 
-#genre-02 > div {
+#photography > div {
     background-color: rgba(239, 82, 133, 0.8);
 }
 
-#genre-03 > div {
+#drawing > div {
     background-color: rgba(254, 238, 125, 0.8);
 }
 
-#genre-04 > div {
+#design > div {
     background-color: rgba(165, 223, 249, 0.8);
 }
 
-#genre-05 > div {
+#video > div {
     background-color: rgba(73, 10, 61, 0.8);
 }
 
-#genre-06 > div {
+#painting > div {
     background-color: rgba(252, 157, 154, 0.8);
 }
 
-#genre-07 > div {
+#idea > div {
     background-color: rgba(58, 197, 105, 0.8);
 }
 
-#genre-08 > div {
+#writing > div {
     background-color: rgba(109, 129, 156, 0.8);
 }
 
-#genre-09 > div {
+#motivation > div {
     background-color: rgba(238, 37, 96, 0.8);
 }
 
-#genre-10 > div {
+#travel > div {
     background-color: rgba(0, 223, 252, 0.8);
 }
 
-#genre-11 > div {
+#science > div {
     background-color: rgba(38, 57, 89, 0.8);
 }
 
-#genre-12 > div {
+#books > div {
     background-color: rgba(166, 23, 45, 0.8);
 }
 
-#genre-13 > div {
+#health > div {
     background-color: rgba(0, 128, 255, 0.8);
 }
 
-#genre-14 > div {
+#architecture > div {
     background-color: rgba(79, 149, 59, 0.8);
 }
+
 .chosing-genre {
     width: 100%;
     height: 6vh;
@@ -433,10 +436,45 @@ table {
 }
 
 .chosing-genre > button {
-    background-color: #009C8E;
-    border: #009C8E;
+    background-color: #7b50c8;
     color: #fff;
+    border: 1px solid #7b50c8;
+    border-bottom: 3px solid rgb(92, 92, 92);
     font-family: "Roboto";
+}
+
+.chosing-genre > button:hover {
+    background: #6340a0;
+    color: #fff;
+    border: 1px solid #6340a0;
+    border-bottom: 3px solid rgb(92, 92, 92);
+}
+
+.fa-check-circle {
+    color: #75D701;
+    font-size: 17px;
+}
+
+#counter {
+    float: right;
+    font-size: 24px;
+    color: #6AAFE6;
+}
+
+#myProgress {
+    width: 100%;
+    display: none;
+}
+  
+#myBar {
+    width: 0%;
+    height: 1vh;
+    background-color: #6AAFE6;
+}
+
+.disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
 }
 
 .home, .genre-choice{
@@ -459,6 +497,7 @@ table {
 .menu-icon, .plus-icon {
     width: 5%;
     text-align: center;
+    cursor: pointer;
 }
 
 .header-title {
@@ -491,4 +530,57 @@ table {
 .time {
     width: 5% !important;
     padding: 10px 0px !important;
+}
+
+.float-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px gray;
+    width: 80%;
+    height: 100vh;
+    margin-left: -100vw;
+}
+
+.float-menu > div > * {
+	display: block;
+	color: black;
+    padding: 5vw 3vw 5vw 3vw;
+    margin-left: 10%;
+    margin-top: 5%;
+    cursor: pointer;
+}
+
+.float-menu > div {
+    margin-top: 7vh;
+}
+
+.float-menu > div > span > i {
+    margin-right: 2vh;
+}
+
+.verify {
+    text-align: center;
+}
+
+.label2 {
+    color: #fff;
+}
+
+.input2 {
+    width: 26vw;
+    height: 5vh;
+    border: 2px solid #6340a0;
+    border-radius: 10px;
+    margin-top: 3vh;
+    font-size: 28px;
+    color: #6340a0;
+    text-indent: 0px !important;
+    padding: 0 5vw;
+}
+
+.verify > form > .btn {
+    margin-top: 0;
 }

@@ -19,6 +19,8 @@ function SignUpSuccess (result) {
 		  	'Now please check your E-mail',
 		  	'success'
 		);
+		$("#signup").css('display','none');
+		$("#verify").css('display','block');
 	}else{
 		console.log(result);
 		result = JSON.parse(result);
