@@ -1,7 +1,23 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Playfair";
+    src: url("../fonts/PlayfairDisplay-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Regular.ttf");
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: roboto;
+    font-family: "Roboto";
+    background-color: #009C8E;
 }
 
 .background {
@@ -12,7 +28,7 @@ body {
 .choice {
     width: 100%;
     height: 100%;
-	background: url("../img/bg.png");
+	background: url("../img/bg2.png");
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
@@ -20,12 +36,20 @@ body {
 
 .logo-choice {
     text-align: center;
-    font-size: 28px;
+    font-size: 18px;
     color: #fff;
+    font-family: "Montserrat";
+    margin-top: 30vh;
 }
 
-.logo-choice > * {
-    margin-top: 30vh;
+.logo-choice > h2 {
+    margin-top: 35px;
+    font-family: "Playfair";
+}
+
+.logo-choice > img {
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(0px 10px 10px rgb(119, 119, 119));
 }
 
 .btn {
@@ -33,52 +57,70 @@ body {
     padding: 11px;
     border: 1px solid #fff;
     border-radius: 20px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(0px 10px 10px rgb(119, 119, 119));
 }
 
 .button-group {
     text-align: center;
-    margin-top: 20vh;
+    margin-top: 8vh;
 }
 
 .button-group > * {
-    font-family: roboto;
+    font-family: "Roboto";
 }
 
-.signup {
-    background: transparent;
+.siup {
+    background-color: #EA5F40;
     color: #fff;
+    border: 1px solid #EA5F40;
     cursor: pointer;
 }
 
 .log {
     background: #fff;
-    color: rgba(26, 188, 156, 1);
-    cursor: pointer;
+    color: #009C8E;
+}
+button:focus{
+	outline:none;
 }
 
-.signup:hover {
-    background: rgba(26, 188, 156, 1);
-    color: #fff;
-    border: 1px solid rgba(26, 188, 156, 1);
+.siup:hover {
+    background: #fff;
+    color: #EA5F40;
+    border: 1px solid #fff;
 }
 
 .log:hover {
-    background: rgba(26, 188, 156, 1);
+    background: #009C8E;
     color: #fff;
-    border: 1px solid rgba(26, 188, 156, 1);
+    border: 1px solid #009C8E;
 }
 
 .front {
     z-index: 100;
 }
 
+.back1 {
+    z-index: 0;
+}
+
+.back2 {
+    z-index: 50;
+}
+
+.hidden {
+    display: none;
+}
+
 .login {
     width: 100%;
     height: 100%;
-    background: url("../img/bg.png");
+    background: url("../img/bg3.png");
     background-repeat: no-repeat;
     background-size: cover;
+    position: absolute;
+    margin-left: -100vw;
 }
 
 .logo-login {
@@ -88,6 +130,8 @@ body {
 
 .logo-login > * {
     margin-top: 20vh;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(0px 10px 10px rgb(119, 119, 119));
 }
 
 .login > form {
@@ -106,6 +150,7 @@ body {
     background-color: transparent;
     font-size: 20px;
     color: #fff;
+    outline:0;
 }
 
 .label {
@@ -121,16 +166,70 @@ body {
     color: #fff;
 }
 
+.input-icon {
+    position: relative;
+}
+.input-icon input {
+    text-indent: 30px;
+}
+
+
+.input-icon .fa-user, .input-icon .fa-lock, .input-icon .fa-envelope {
+    position: absolute;
+    top: 30px;
+    left: 7px;
+    font-size: 15px;
+    color: #fff;
+}
+
 .login > form > button {
-    font-family: roboto;
+    font-family: "Roboto";
     margin-top: 2vh;
-	background-color: rgba(26, 188, 156, 1);
-	color: #fff;
-	border: 1px solid rgba(26, 188, 156, 1);
+	background-color: #fff;
+	color: #009C8E;
+	border: 1px solid #fff;
 }
 
 .login > form > button:hover {
-	background-color: #fff;
-	color: rgba(26, 188, 156, 1);
-	border: 1px solid #fff;
+	background-color: #EA5F40;
+	color: #fff;
+	border: 1px solid #EA5F40;
+}
+
+.logo-login {
+    text-align: center;
+    color: #fff;
+}
+
+.logo-signup > * {
+    margin-top: 5vh;
+}
+
+.signup {
+    width: 100%;
+    height: 100%;
+    background: url("../img/bg4.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    margin-left: -100vw;
+}
+
+.signup > form {
+    width: 75vw;
+    margin: 0 auto;
+    margin-top: 6vh;
+}
+
+.already {
+    margin-top: 2vh;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+}
+
+.already > a {
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
 }

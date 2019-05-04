@@ -8,34 +8,85 @@
         <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript " src="js/jquery-3.2.1.min.js"></script>
         <script type="text/javascript " src="js/controller.js"></script>
+	    <!--Api JS for alerts(Messages Error ans succes...) check this link for documentation : https://sweetalert.js.org/guides/-->
+		<script type="text/javascript " src="js/sweetalert.js"></script>
+        <script type="text/javascript " src="js/ajax.js"></script>
+        <script type="text/javascript " src="js/displayDataJson.js"></script>
+
     </head>
     <body>
         <div class="background">
 
             <!-- LOGIN & SIGNUP CHOICE-->
-            <div class="choice front" id="choice">
+            <div class="choice" id="choice">
                 <div class="logo-choice">
-                    <img src="img/logo.png" width="100px" height="100px"><br>
-                    Creative Brains
+                    <img src="img/logo.png" width="110px" height="110px"><br>
+                    <h2>Creative Brains</h2>
+                    <p>Everything you can imagine is real</p>
                 </div>
                 <div class="button-group">
-                    <button class="btn signup">SIGN UP</button><br><br>
-                    <button class="btn log" onclick="login()">LOGIN</button>            
+                    <button class="btn siup" onclick='next("choice", "signup")'>SIGN UP</button><br><br>
+                    <button class="btn log" onclick='next("choice", "login")'>LOG IN</button>            
                 </div>
             </div>
-
-            <!-- LOGIN & SIGNUP CHOICE-->
+            <!-- 009C8E  FFDB6A -->
+            <!-- LOGIN-->
             <div class="login" id="login">
                 <div class="logo-login">
                     <img src="img/logo.png" width="120px" height="120px"><br>
                 </div>
+                <form action="#">
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                        <label for="username" class="label">USERNAME</label>
+                        <input type="text" class="input" name="username" id="username">
+                    </div> <br>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <label for="password" class="label">PASSWORD</label>
+                        <input type="password" class="input" name="password" id="password">
+                    </div>
+                    <div id="toDisplay">
+                        
+                    </div>
+                    <a href="#">Forget Password?</a><br><br>
+                    <button class="btn log" onclick="displayData()">LOGIN</button><br>
+                    <div class="already">
+                        not on Creative Brains yet? <a class="link" onclick='next("login", "signup")'>sign up</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- SIGNUP -->
+            <div class="login signup" id="signup">
+                <div class="logo-login logo-signup">
+                    <img src="img/logo.png" width="120px" height="120px"><br>
+                </div>
                 <form>
-                    <label for="username" class="label">USERNAME</label><br>
-                    <input type="text" class="input" name="username" id="username"><br><br>
-                    <label for="password" class="label">PASSWORD</label><br>
-                    <input type="password" class="input" name="password" id="password"><br>
-                    <a href="#">Forget Password?</a>
-                    <button class="btn log">LOGIN</button>
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                        <label for="username-signup" class="label">USERNAME</label>
+                        <input type="text" class="input" name="username-signup" id="username-signup">
+                    </div> <br>
+                    <div class="input-icon">
+                        <i class="fas fa-envelope"></i>
+                        <label for="email" class="label">EMAIL</label>
+                        <input type="email" class="input" name="email" id="email">
+                    </div> <br>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <label for="password-signup" class="label">PASSWORD</label>
+                        <input type="password" class="input" name="password-signup" id="password-signup">
+                    </div> <br>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <label for="confirm-password" class="label">CONFIRM PASSWORD</label>
+                        <input type="password" class="input" name="confirm-password" id="confirm-password">
+                    </div> <br>
+                    <button class="btn log">SIGN UP</button><br>
+                    <div class="already">
+                        already user? <a class="link" onclick='next("signup", "login")'>click here</a>
+                    </div>
                 </form>
             </div>
         </div>

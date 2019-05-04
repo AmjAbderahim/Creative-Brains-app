@@ -92,7 +92,9 @@ body {
 .log {
     background: #fff;
     color: #009C8E;
-    cursor: pointer;
+}
+button:focus{
+	outline:none;
 }
 
 .siup:hover {
