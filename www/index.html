@@ -136,7 +136,7 @@
                 </div>
                 <form>
                     <div class="input-icon">
-                        <label for="codeVerification" class="label2">Enter the code</label>
+                        <label for="codeVerification" class="label2">Enter the code</label> <br>
                         <input type="hidden" name="username" value="" id="hiddenUsername"/>
                         <input type="text" size="6" class="input2" name="codeVerification" id="codeVerification">
                     </div> <br>
@@ -281,24 +281,28 @@
             <!-- Home -->
             <div class="home hidden" id="home">
                 <div class="header">
-                    <span class="menu-icon"><i class="fas fa-bars" onclick="menu()"></i></span>
-                    <span class="header-title">Creations</span>
+                    <span class="menu-icon"><i class="fas fa-bars" onclick="showMenu()"></i></span>
+                    <span class="header-title" id="header-title">Creations</span>
                     <span class="plus-icon"><i class="fas fa-plus"></i></span>
                 </div>
-                <div class="float-menu hidden">
-                    <span>Creations</span>
-                    <span>Profile</span>
-                    <span>Setting</span>
-                    <span>Logout</span>
+                <div class="float-menu" id="float-menu">
+                    <div>
+                        <span onclick='switchPageTo("Creations")'><i class="fas fa-home"></i>Creations</span>
+                        <span onclick='switchPageTo("Profile")'><i class="fas fa-user"></i>Profile</span>
+                        <span onclick='switchPageTo("Setting")'><i class="fas fa-cog"></i>Setting</span>
+                        <span onclick='logout()'><i class="fas fa-sign-out-alt"></i>Logout</span>
+                    </div>
                 </div>
-                <div class="post">
-                    <header>
-                        <div class="uimg">
-                            <img src="img/static_img/user1.png" width="30px" height="30px">
-                        </div>
-                        <span id="userNamePost">maha_el</span>
-                        <span class="time">2h</span>
-                    </header>
+                <div id="Creations">
+                    <div class="post" id="post">
+                        <header>
+                            <div class="uimg">
+                                <img src="img/static_img/user1.png" width="30px" height="30px">
+                            </div>
+                            <span>maha_el</span>
+                            <span class="time">2h</span>
+                        </header>
+                    </div>
                 </div>
             </div>
         </div>

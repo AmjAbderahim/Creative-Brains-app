@@ -45,7 +45,7 @@ function switchPageTo(id) {
 
 function logout() {
     hideMenu();
-    swal("Are you sure you want to do this?", {
+    Swal.fire("Are you sure you want to do this?", {
         buttons: ["Oh noez!", true],
     });
 }
