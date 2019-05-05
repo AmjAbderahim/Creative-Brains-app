@@ -1,4 +1,4 @@
-var serverSideUrl = "http://192.168.1.104/Creative/www/php/";
+var serverSideUrl = "http://192.168.1.11/Creative/www/php/";
 function doGet (uri,successFunction,errorFunction) {
 	showLoader();
 	$.ajax({
