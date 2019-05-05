@@ -1,8 +1,8 @@
 <?php
 	include 'db.php';
-	$username = $_POST['username-signup'];
+	$username = $_POST['username'];
 	$email=$_POST['email'];
-	$password=$_POST['password-signup'];
+	$password=$_POST['password'];
 	$confirmed_password=$_POST['confirm-password'];
 	$errors = array();
 
@@ -53,6 +53,7 @@
 		mail($to, $subject, $message, $headers); // Send our email
   		$query = "INSERT INTO user(username,password,email,Actived,creativity,verification_code) VALUES('$username','$passwordEncy','$email',0,0,'$verification_code')";
   		mysqli_query($con, $query);
-  		echo "success";
+  		$success = array('success' => true, 'from' => "signup", 'to' => "verify", 'message' => "Now please check your E-mail");
+  		echo json_encode($success);
   	}
 ?>
