@@ -14,13 +14,14 @@
         <script type="text/javascript " src="js/User.js"></script>
         <!--Api JS for alerts(Messages Error ans succes...) check this link for documentation : https://sweetalert.js.org/guides/-->
         <script type="text/javascript " src="js/sweetalert.js"></script>
+        <script type="text/javascript " src="js/camera.js"></script>
 
     </head>
     <body>
         <div class="background">
 
             <!-- LOGIN & SIGNUP CHOICE-->
-            <div class="choice" id="choice">
+            <div class="choice hidden" id="choice">
                 <div class="logo-choice">
                     <img src="img/logo.png" width="110px" height="110px">
                     <p>
@@ -136,7 +137,7 @@
                 </div>
                 <form>
                     <div class="input-icon">
-                        <label for="codeVerification" class="label2">Enter the code</label>
+                        <label for="codeVerification" class="label2">Enter the code</label> <br>
                         <input type="hidden" name="username" value="" id="hiddenUsername"/>
                         <input type="text" size="6" class="input2" name="codeVerification" id="codeVerification">
                     </div> <br>
@@ -150,119 +151,123 @@
             <!-- Creations Genre choice -->
             <div class="genre-choice hidden" id="genre-choice">
                 <header>
-                    <span class="q">What kind of creations you like?</span>
-                    <p class="s-title">Choose one to start</p>
+                    <span class="q">What kind of creations you like?</span><br>
+                    <span class="s-title">Choose one to start</span>
+                    <span id="counter"></span>
+                    <div id="myProgress">
+                        <div id="myBar"></div>
+                    </div><br>
                 </header>
                 <div class="genres">
                     <table>
                         <tr>
                             <td class="cell">
-                                <div class="genre" id="genre-01">
+                                <div class="genre" id="sound" onclick='selectGenre("sound")'>
                                     <div>
-                                        <span>Sound</span>
+                                        <span>sound</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="cell" >
-                                <div class="genre" id="genre-02">
+                                <div class="genre" id="photography" onclick='selectGenre("photography")'>
                                     <div>
-                                        <span>Photography</span>
+                                        <span>photography</span>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td class="cell">
-                                <div class="genre" id="genre-03">
+                                <div class="genre" id="drawing" onclick='selectGenre("drawing")'>
                                     <div>
-                                        <span>Drawing</span>
+                                        <span>drawing</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="cell" >
-                                <div class="genre" id="genre-04">
+                                <div class="genre" id="design" onclick='selectGenre("design")'>
                                     <div>
-                                        <span>Design</span>
+                                        <span>design</span>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td class="cell">
-                                <div class="genre" id="genre-05">
+                                <div class="genre" id="video" onclick='selectGenre("video")'>
                                     <div>
-                                        <span>Video</span>
+                                        <span>video</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="cell" >
-                                <div class="genre" id="genre-06">
+                                <div class="genre" id="painting" onclick='selectGenre("painting")'>
                                     <div>
-                                        <span>Painting</span>
+                                        <span>painting</span>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td class="cell">
-                                <div class="genre" id="genre-07">
+                                <div class="genre" id="idea" onclick='selectGenre("idea")'>
                                     <div>
-                                        <span>Idea</span>
+                                        <span>idea</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="cell" >
-                                <div class="genre" id="genre-08">
+                                <div class="genre" id="writing" onclick='selectGenre("writing")'>
                                     <div>
-                                        <span>Writing</span>
+                                        <span>writing</span>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td class="cell">
-                                <div class="genre" id="genre-09">
+                                <div class="genre" id="motivation" onclick='selectGenre("motivation")'>
                                     <div>
-                                        <span>Motivation</span>
+                                        <span>motivation</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="cell" >
-                                <div class="genre" id="genre-10">
+                                <div class="genre" id="travel" onclick='selectGenre("travel")'>
                                     <div>
-                                        <span>Travel</span>
+                                        <span>travel</span>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td class="cell">
-                                <div class="genre" id="genre-11">
+                                <div class="genre" id="science" onclick='selectGenre("science")'>
                                     <div>
-                                        <span>Science</span>
+                                        <span>science</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="cell" >
-                                <div class="genre" id="genre-12">
+                                <div class="genre" id="books" onclick='selectGenre("books")'>
                                     <div>
-                                        <span>Books</span>
+                                        <span>books</span>
                                     </div>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td class="cell">
-                                <div class="genre" id="genre-13">
+                                <div class="genre" id="health" onclick='selectGenre("health")'>
                                     <div>
-                                        <span>Health</span>
+                                        <span>health</span>
                                     </div>
                                 </div>
                             </td>
                             <td class="cell" >
-                                <div class="genre" id="genre-14">
+                                <div class="genre" id="architecture" onclick='selectGenre("architecture")'>
                                     <div>
-                                        <span>Architecture</span>
+                                        <span>architecture</span>
                                     </div>
                                 </div>
                             </td>
@@ -275,27 +280,48 @@
             </div>
 
             <!-- Home -->
-            <div class="home hidden" id="home">
+            <div class="home" id="home">
                 <div class="header">
-                    <span class="menu-icon"><i class="fas fa-bars" onclick="menu()"></i></span>
-                    <span class="header-title">Creations</span>
-                    <span class="plus-icon"><i class="fas fa-plus"></i></span>
+                    <span class="menu-icon"><i class="fas fa-bars" onclick="showMenu()"></i></span>
+                    <span class="header-title" id="header-title">Creations</span>
+                    <span class="plus-icon" onclick='next(currentDivId, "newPost")'><i class="fas fa-plus"></i></span>
                 </div>
-                <div class="float-menu hidden">
-                    <span>Creations</span>
-                    <span>Profile</span>
-                    <span>Setting</span>
-                    <span>Logout</span>
+                <div class="float-menu" id="float-menu">
+                    <div>
+                        <span onclick='switchPageTo("Creations")'><i class="fas fa-home"></i>Creations</span>
+                        <span onclick='switchPageTo("Profile")'><i class="fas fa-user"></i>Profile</span>
+                        <span onclick='switchPageTo("Setting")'><i class="fas fa-cog"></i>Setting</span>
+                        <span onclick='logout()'><i class="fas fa-sign-out-alt"></i>Logout</span>
+                    </div>
                 </div>
-                <div class="post">
-                    <header>
-                        <div class="uimg">
-                            <img src="img/static_img/user1.png" width="30px" height="30px">
-                        </div>
-                        <span id="userNamePost">maha_el</span>
-                        <span class="time">2h</span>
-                    </header>
+                <div id="Creations">
+                    <div class="post" id="post">
+                        <header>
+                            <div class="uimg">
+                                <img src="img/static_img/user1.png" width="30px" height="30px">
+                            </div>
+                            <span>maha_el</span>
+                            <span class="time">2h</span>
+                        </header>
+                    </div>
                 </div>
+            </div>
+
+            <!-- New Post-->
+            <div class="newPost home" id="newPost">
+                <div class="header">
+                    <span class="cancel" onclick='next("newPost", currentDivId)'>Cancel</span>
+                    <span class="header-title-post">Create Post</span>
+                    <span class="addpost">Post</span>
+                </div>
+                <div class="uimg">
+                    <img src="img/static_img/user1.png" width="50px" height="50px">
+                </div>
+                <span>maha_el</span>
+                <textarea class="postBody" name="post" id="post" placeholder="What's on your mind?"></textarea>
+                <img id="img_post_preview" />
+                <button><i class="far fa-image"></i></button>
+                <button onclick="cameraTakePicture()"><i class="fas fa-camera"></i></button>
             </div>
         </div>
      </body>
