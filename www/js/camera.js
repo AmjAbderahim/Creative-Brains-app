@@ -1,30 +1,21 @@
+document.addEventListener("deviceready", onDeviceReady, false);
 
-let app = {
-      init: function(){
-         document.getElementById('cameraTakePicture').addEventListener('click', app.takephoto);
-      },
-      takephoto: function(){
-         let opts = {
-            quality: 80,
-            destinationType: Camera.DestinationType.FILE_URI,
-            sourceType: Camera.PictureSourceType.CAMERA,
-            mediaType: Camera.MediaType.PICTURE,
-            encodingType: Camera.EncodingType.JPEG,
-            cameraDirection: Camera.Direction.BACK,
-            targetWidth: 300,
-            targetHeight: 400
-         };
-         
-         navigator.camera.getPicture(app.ftw, app.wtf, opts);
-      },
-      ftw: function(imgURI){
-         document.getElementById('msg').textContent = imgURI;
-         document.getElementById('img_post_preview').src = imgURI;
-         
-      },
-      wtf: function(msg){
-         document.getElementById('msg').textContent = msg;
-      }
-};
+function onDeviceReady() {
+   document.getElementById('cameraTakePicture').addEventListener('click', cameraTakePicture);
+}
 
-document.addEventListener('deviceready', app.init);
+function cameraTakePicture() { 
+    navigator.camera.getPicture(onSuccess, onFail, {  
+       quality: 50, 
+       destinationType: Camera.DestinationType.DATA_URL 
+    });  
+    
+    function onSuccess(imageData) { 
+       var image = document.getElementById('img_post_preview'); 
+       image.src = "data:image/jpeg;base64," + imageData; 
+    }  
+    
+    function onFail(message) { 
+       alert('Failed because: ' + message); 
+    } 
+}

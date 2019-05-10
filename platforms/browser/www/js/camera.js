@@ -1,3 +1,9 @@
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+   document.getElementById('cameraTakePicture').addEventListener('click', cameraTakePicture);
+}
+
 function cameraTakePicture() { 
     navigator.camera.getPicture(onSuccess, onFail, {  
        quality: 50, 
