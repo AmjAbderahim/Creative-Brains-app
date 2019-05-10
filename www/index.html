@@ -14,6 +14,7 @@
         <script type="text/javascript " src="js/User.js"></script>
         <!--Api JS for alerts(Messages Error ans succes...) check this link for documentation : https://sweetalert.js.org/guides/-->
         <script type="text/javascript " src="js/sweetalert.js"></script>
+        <script type="text/javascript " src="js/camera.js"></script>
 
     </head>
     <body>
@@ -283,7 +284,7 @@
                 <div class="header">
                     <span class="menu-icon"><i class="fas fa-bars" onclick="showMenu()"></i></span>
                     <span class="header-title" id="header-title">Creations</span>
-                    <span class="plus-icon"><i class="fas fa-plus"></i></span>
+                    <span class="plus-icon" onclick='next(currentDivId, "newPost")'><i class="fas fa-plus"></i></span>
                 </div>
                 <div class="float-menu" id="float-menu">
                     <div>
@@ -304,6 +305,23 @@
                         </header>
                     </div>
                 </div>
+            </div>
+
+            <!-- New Post-->
+            <div class="newPost home" id="newPost">
+                <div class="header">
+                    <span class="cancel" onclick='next("newPost", currentDivId)'>Cancel</span>
+                    <span class="header-title-post">Create Post</span>
+                    <span class="addpost">Post</span>
+                </div>
+                <div class="uimg">
+                    <img src="img/static_img/user1.png" width="50px" height="50px">
+                </div>
+                <span>maha_el</span>
+                <textarea class="postBody" name="post" id="post" placeholder="What's on your mind?"></textarea>
+                <img id="img_post_preview" />
+                <button><i class="far fa-image"></i></button>
+                <button onclick="cameraTakePicture()"><i class="fas fa-camera"></i></button>
             </div>
         </div>
      </body>

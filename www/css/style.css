@@ -30,7 +30,7 @@ body {
 .background {
     width: 100vw;
     height: 100vh;
-    background-color: #009C8E;
+    background-color: #9bbec2;
 }
 
 .choice {
@@ -70,7 +70,7 @@ body {
     width: 75vw;
     padding: 11px;
     border: 1px solid #fff;
-    border-radius: 20px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -84,33 +84,33 @@ body {
 }
 
 .siup {
-    background-color: #7b50c8;
+    background-color: #fd2346;
     color: #fff;
-    border: 1px solid #7b50c8;
-    border-bottom: 3px solid rgb(92, 92, 92);
+    border: 1px solid #fd2346;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(0px 10px 10px rgb(0, 0, 0));
     cursor: pointer;
 }
 
 .log {
     background: #fff;
-    color: #009C8E;
-    border: 1px solid #009C8E;
-    border-bottom: 3px solid rgb(128, 128, 128);
+    color: #fd2346;
+    border: 1px solid #fff;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(0px 10px 10px rgb(0, 0, 0));
 }
 
 
 .siup:hover {
-    background: #6340a0;
+    background: #ee2244;
     color: #fff;
-    border: 1px solid #6340a0;
-    border-bottom: 3px solid rgb(92, 92, 92);
+    border: 1px solid #ee2244;
 }
 
 .log:hover {
     background: rgb(228, 228, 228);
-    color: #009C8E;
-    border: 1px solid #009C8E;
-    border-bottom: 3px solid rgb(92, 92, 92);
+    color: #ee2244;
+    border: 1px solid #fff;
 }
 
 .hidden {
@@ -193,17 +193,15 @@ body {
 .login > form > .btn {
     font-family: "Roboto";
     margin-top: 2vh;
-    background-color: #7b50c8;
+    background-color: #fd2346;
     color: #fff;
-    border: 1px solid #7b50c8;
-    border-bottom: 3px solid rgb(92, 92, 92);
+    border: 1px solid #fd2346;
 }
 
 .login > form > .btn:hover {
-    background: #6340a0;
+    background: #ee2244;
     color: #fff;
-    border: 1px solid #6340a0;
-    border-bottom: 3px solid rgb(92, 92, 92);
+    border: 1px solid #ee2244;
 }
 
 .logo-login {
@@ -436,18 +434,18 @@ table {
 }
 
 .chosing-genre > button {
-    background-color: #7b50c8;
+    background-color: #fd2346;
     color: #fff;
-    border: 1px solid #7b50c8;
-    border-bottom: 3px solid rgb(92, 92, 92);
+    border: 1px solid #fd2346;
     font-family: "Roboto";
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(0px 10px 10px rgb(126, 126, 126));
 }
 
 .chosing-genre > button:hover {
-    background: #6340a0;
+    background: #ee2244;
     color: #fff;
-    border: 1px solid #6340a0;
-    border-bottom: 3px solid rgb(92, 92, 92);
+    border: 1px solid #ee2244;
 }
 
 .fa-check-circle {
@@ -477,7 +475,7 @@ table {
     opacity: 0.4;
 }
 
-.home, .genre-choice{
+.home, .genre-choice, .newPost{
     width: 90%;
     height: 100%;
     background-color: #fff;
@@ -572,15 +570,72 @@ table {
 .input2 {
     width: 26vw;
     height: 5vh;
-    border: 2px solid #6340a0;
+    border: 2px solid #ee2244;
     border-radius: 10px;
     margin-top: 3vh;
     font-size: 28px;
-    color: #6340a0;
+    color: #ee2244;
     text-indent: 0px !important;
     padding: 0 5vw;
 }
 
 .verify > form > .btn {
     margin-top: 0;
+}
+
+.newPost {
+    position: absolute;
+    top: 0;
+    margin-left: -100vw;
+}
+
+.cancel, .addpost {
+    width: 15%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.header-title-post {
+    font-size: 20px;
+    width: 63%;
+    text-align: center;
+}
+
+.addpost {
+    background-color: #9bbec2;
+    color: #fff;
+    border-radius: 15px;
+    padding: 2% !important;
+}
+
+.newPost > span {
+    width: 77%;
+    font-size: 12px;
+    font-family: "RobotoBold";
+    display: inline-block;
+    padding: 16px 10px;
+}
+
+.newPost > .uimg, .newPost > span {
+    margin: 1vh 0;
+}
+
+.postBody {
+    width: 90%;
+    height: 55%;
+    border: 1px solid rgb(247, 247, 247);
+    border-radius: 10px;
+    padding: 5%;
+    font-size: 14px;
+    font-family: "Montserrat";
+}
+
+.newPost > button {
+    padding: 4% 45%;
+    border: 1px solid #cecece;
+    border-radius: 7px;
+    font-size: 28px;
+    background-color: #fff;
+    color: #839ea1;
+    cursor: pointer;
 }
