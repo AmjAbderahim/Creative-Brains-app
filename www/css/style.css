@@ -182,7 +182,7 @@ body {
 }
 
 
-.input-icon .fa-user, .input-icon .fa-lock, .input-icon .fa-envelope {
+.input-icon .fa-user, .input-icon .fa-lock, .input-icon .fa-envelope, .input-icon .fa-address-card, .input-icon .fa-venus-mars{
     position: absolute;
     top: 30px;
     left: 7px;
@@ -638,4 +638,61 @@ table {
     background-color: #fff;
     color: #839ea1;
     cursor: pointer;
+}
+
+.accountSetting {
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    margin-left: -100vw;
+}
+
+.accountSetting > div {
+    padding: 4% 3%;
+    border-radius: 10px;
+}
+
+.accountSetting > div > .input-icon > .label {
+    color: #34314c;
+}
+
+.accountSetting > div > .input-icon > i {
+    color: #9c9c9c;
+}
+
+.accountSetting > div > .input-icon > .input {
+    border-bottom: 2px solid #9c9c9c;
+    color: #9c9c9c;
+}
+
+.description {
+    width: 90%;
+    height: 15%;
+    border: none;
+    border-bottom: 2px solid #9c9c9c;
+    color: #9c9c9c;
+    padding: 3%;
+    padding-left: 10%;
+    font-size: 14px;
+    font-family: "Montserrat";
+}
+
+.select {
+    width: 100%;
+    height: 6vh;
+    padding-left: 10%;
+    border: none;
+    border-bottom: 2px solid #9c9c9c;
+    color: #9c9c9c;
+    font-size: 20px;
+    outline:0;
+}
+
+.accountSetting > .header {
+    width: 94%;
+}
+
+.accountSetting > h5 {
+    margin-bottom: 1vh;
 }
