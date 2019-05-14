@@ -291,7 +291,7 @@
                     <div>
                         <span onclick='switchPageTo("Creations")'><i class="fas fa-home"></i>Creations</span>
                         <span onclick='switchPageTo("Profile")'><i class="fas fa-user"></i>Profile</span>
-                        <span onclick='switchPageTo("Setting")'><i class="fas fa-cog"></i>Setting</span>
+                        <span onclick='next("float-menu", "setting")'><i class="fas fa-cog"></i>Setting</span>
                         <span onclick='logout()'><i class="fas fa-sign-out-alt"></i>Logout</span>
                     </div>
                 </div>
@@ -305,6 +305,78 @@
                             <span class="time">2h</span>
                         </header>
                     </div>
+                </div>
+            </div>
+
+            <!-- Setting -->
+            <div class="setting float-menu" id="setting">
+                <div>
+                    <span onclick='next(currentDivId, "Account"); hide("setting");'><i class="fas fa-user"></i>Account</span>
+                </div>
+            </div>
+
+            <!-- Account-->
+            <div class="accountSetting hidden" id="Account">
+                <div class="header">
+                    <span class="cancel" onclick='next("Account", currentDivId)'>Cancel</span>
+                    <span class="header-title-post">Account Setting</span>
+                    <span class="addpost">Update</span>
+                </div>
+                <h5 style="text-align: center;">USER INFORMATIONS</h5>
+                <div>
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                        <label for="username-setting" class="label">USERNAME</label>
+                        <input type="text" class="input" name="username-setting" id="username-setting" /> 
+                    </div>
+                    <br>
+                    <div class="input-icon">
+                        <i class="fas fa-envelope"></i>
+                        <label for="email-setting" class="label">EMAIL</label>
+                        <input type="email" class="input" name="email-setting" id="email-setting" /> 
+                    </div>
+                    <br>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <label for="old-password-setting" class="label">OLD PASSWORD</label>
+                        <input type="password" class="input" name="old-password-setting" id="old-password-setting" /> 
+                    </div>
+                    <br>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <label for="new-password-setting" class="label">NEW PASSWORD</label>
+                        <input type="password" class="input" name="new-password-setting" id="new-password-setting" /> 
+                    </div>
+                    <br>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <label for="confirm-password-setting" class="label">CONFIRM PASSWORD</label>
+                        <input type="password" class="input" name="confirm-password-setting" id="confirm-password-setting" /> 
+                    </div>         
+                </div>
+                <h5 style="text-align: center;">PROFILE INFORMATIONS</h5>
+                <div>
+                    <div class="input-icon">
+                        <i class="fas fa-address-card"></i>
+                        <label for="description" class="label">ABOUT</label>
+                        <textarea class="description" name="description" id="description"></textarea>
+                    </div>
+                    <br>
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                        <label for="age" class="label">AGE</label>
+                        <input type="text" class="input" name="age" id="age" /> 
+                    </div>
+                    <br>
+                    <div class="input-icon">
+                        <i class="fas fa-venus-mars"></i>
+                        <label for="gender" class="label">GENDER</label> <br>
+                        <select class="select" name="gender" id="gender">
+                            <option value="male" selected>Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <br>       
                 </div>
             </div>
 
