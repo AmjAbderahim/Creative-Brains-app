@@ -9,5 +9,4 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-	<plugin name="cordova-plugin-camera" spec="2.4.0" />
 </widget>

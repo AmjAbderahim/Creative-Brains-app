@@ -32,7 +32,11 @@ function showMenu() {
 }
 
 function hideMenu() {
-    $("#float-menu").animate( {"margin-left": "-100vw"}, 200, "linear" );
+    hide("float-menu");
+}
+
+function hide(id) {
+    $("#" + id).animate( {"margin-left": "-100vw"}, 200, "linear" );
 }
 
 function switchPageTo(id) {

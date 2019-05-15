@@ -5,10 +5,7 @@ function onDeviceReady() {
 }
 
 function cameraTakePicture() { 
-    navigator.camera.getPicture(onSuccess, onFail, {  
-       quality: 50, 
-       destinationType: Camera.DestinationType.DATA_URL 
-    });  
+    navigator.camera.getPicture(onSuccess, onFail, {  quality: 50, destinationType: Camera.DestinationType.DATA_URL });  
     
     function onSuccess(imageData) { 
        var image = document.getElementById('img_post_preview'); 
