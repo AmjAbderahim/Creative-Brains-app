@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="css/all.min.css">
         <link rel="stylesheet" href="css/loader.css">
         <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript " src="js/post/PostDAO.js"></script>
         <script type="text/javascript " src="js/jquery-3.2.1.min.js"></script>
         <script type="text/javascript " src="js/controller.js"></script>
         <script type="text/javascript " src="js/Authentification.js"></script>
@@ -18,11 +19,11 @@
         <script type="text/javascript " src="js/camera.js"></script>
 
     </head>
-    <body>
+    <body onload="checkAuthentification()">
         <div class="background">
 
             <!-- LOGIN & SIGNUP CHOICE-->
-            <div class="choice hidden" id="choice">
+            <div class="choice" id="choice">
                 <div class="logo-choice">
                     <img src="img/logo.png" width="110px" height="110px">
                     <p>
@@ -142,7 +143,7 @@
                         <input type="hidden" name="username" value="" id="hiddenUsername"/>
                         <input type="text" size="6" class="input2" name="codeVerification" id="codeVerification">
                     </div> <br>
-                    <input type="button" class="btn log" onclick='submitForm("verify","verify.php")' value="VERIFY"/><br>
+                    <input type="button" class="btn log" onclick='verify()' value="VERIFY"/><br>
                     <div class="already">
                         back to <a class="link" onclick='next("verify", "signup")'>signup</a>
                     </div>
@@ -319,11 +320,13 @@
                     <img src="img/static_img/user1.png" width="50px" height="50px">
                 </div>
                 <span>maha_el</span>
-                <textarea class="postBody" name="post" id="post" placeholder="What's on your mind?"></textarea>
+                <textarea class="postBody" name="postText" id="postText" placeholder="What's on your mind?"></textarea>
                 <img id="img_post_preview" />
                 <p id="msg"></p>
-                <button><i class="far fa-image"></i></button>
+                <label id="labelFile" for="file"><i class="fas fa-camera"></i></label>
+                <input type="file" class="hidden" name="file" id="file" value="select file"/>
                 <button id="cameraTakePicture"><i class="fas fa-camera"></i></button>
+                <input type="button" name="buttonFile" onclick="checkFileAndAddPost()" value="Done">
             </div>
         </div>
      </body>

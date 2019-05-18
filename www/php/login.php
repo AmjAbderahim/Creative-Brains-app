@@ -11,7 +11,7 @@
 			$success = array('success' => true, 'from' => "login", 'to' => "home",'user' => $user);
   			echo json_encode($success);
 		}else{
-			$error = array('notVerified' => true,'message' => "Your account is not active, please active it and try again.");
+			$error = array('notVerified' => true,'message' => "Your account is not active, please active it and try again.",'user' => $user);
 	 		echo json_encode($error);
 		}
 	}else {

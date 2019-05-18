@@ -43,12 +43,7 @@ function switchPageTo(id) {
     currentDivId = id;
 }
 
-function logout() {
-    hideMenu();
-    Swal.fire("Are you sure you want to do this?", {
-        buttons: ["Oh noez!", true],
-    });
-}
+
 
 function selectGenre(genre) {
     if (!genres.includes(genre)) {
@@ -109,4 +104,14 @@ function able() {
             $("#" + g[i]).removeClass("disabledbutton");
         }
     }
+}
+
+function checkFileAndAddPost () {
+    var text = $("#postText").val();
+    var file_data = $('#file').prop('files')[0];   
+    var form_data = new FormData();
+    form_data.append('text', text);
+    form_data.append('file', file_data);
+    form_data.append('username',window.localStorage.getItem("username"));
+    (new Form()).doPostWithData("addPost.php",form_data);
 }

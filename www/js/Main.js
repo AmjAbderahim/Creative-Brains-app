@@ -1,11 +1,21 @@
 
 var user;
+postDAO = new PostDAO();
 function showLoader () {
 	$(".loader").css("display","block");
 }
 
 function hideLoader () {
 	$(".loader").css("display","none");
+}
+
+function checkAuthentification(){
+	if(window.localStorage.getItem("isIn")){
+		$("#choice").addClass("hidden");
+	}
+	else{
+		$("#home").addClass("hidden");
+	}
 }
 
 function submitForm (formName,fileName,success) {
@@ -15,11 +25,11 @@ function submitForm (formName,fileName,success) {
 }
 function successAlert(from,to,message){
 	Swal.fire(
-  			'Good job!',
-		  	message,
-		  	'success'
-		);
-		next(from, to);
+		'Good job!',
+		message,
+		'success'
+	);
+	next(from, to);
 }
 function errorAlert (result) {
 		console.log(result);

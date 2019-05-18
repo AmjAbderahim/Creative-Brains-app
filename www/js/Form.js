@@ -1,18 +1,27 @@
 
-var serverSideUrl = "http://192.168.1.104/Creative/www/php/";
+var serverSideUrl = "http://192.168.1.103/Creative/www/php/";
 function Form(formName){
+	if(formName == undefined)return;
 	this.inputs = $("#"+formName+" input");
-	this.dataString = "";
+	this.dataString = new FormData();
 	for(var i=0;i<this.inputs.length;i++){
-    	this.dataString += this.inputs[i].name + "=" + this.inputs[i].value + "&";
+    	this.dataString.append(this.inputs[i].name,this.inputs[i].value);
     }
 }
+Form.prototype.doPostWithData = function(fileName,data,success) {
+	this.dataString = data;
+	this.doPost(fileName,success);
+};
 Form.prototype.doPost = function(fileName,success){
 	showLoader();
 	if(success == undefined)success = defaultSuccess;
 	$.ajax({
 		type:'POST',
 		url:serverSideUrl+fileName,
+		dataType: 'text',  // what to expect back from the PHP script, if anything
+        cache: false,
+        contentType: false,
+        processData: false,
 		data:this.dataString,
 		success:success,
 		error:defaultError
