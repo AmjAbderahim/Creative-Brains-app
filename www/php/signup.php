@@ -31,7 +31,7 @@
   		echo json_encode($errors);
   	}else{
   		$passwordEncy = md5($password);//encrypt the password before saving in the database
-  		$verification_code = rand(1000,9999);
+  		$verification_code = rand(100000,999999);
   		//E-mail party
   		$to      = $email; // Send email to our user
 		$subject = 'E-mail Verification'; // Give the email a subject 
