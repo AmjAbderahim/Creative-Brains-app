@@ -386,7 +386,7 @@
                 <div class="header">
                     <span class="cancel" onclick='next("newPost", currentDivId)'>Cancel</span>
                     <span class="header-title-post">Create Post</span>
-                    <span class="addpost">Post</span>
+                    <input type="button" class="addpost" name="buttonFile" onclick="checkFileAndAddPost()" value="Post">
                 </div>
                 <div class="uimg">
                     <img src="img/static_img/user1.png" width="50px" height="50px">
@@ -398,7 +398,7 @@
                 <label id="labelFile" for="file"><i class="fas fa-camera"></i></label>
                 <input type="file" class="hidden" name="file" id="file" value="select file"/>
                 <button id="cameraTakePicture"><i class="fas fa-camera"></i></button>
-                <input type="button" name="buttonFile" onclick="checkFileAndAddPost()" value="Done">
+                
             </div>
      </body>
      <script type="text/javascript " src="js/Main.js"></script>
