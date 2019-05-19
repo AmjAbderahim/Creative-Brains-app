@@ -5,35 +5,63 @@
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
         <title>Creative Brains</title>
         <link rel="stylesheet" href="css/all.min.css">
+        <link rel="stylesheet" href="css/loader.css">
         <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript " src="js/post/PostDAO.js"></script>
         <script type="text/javascript " src="js/jquery-3.2.1.min.js"></script>
         <script type="text/javascript " src="js/controller.js"></script>
-	    <!--Api JS for alerts(Messages Error ans succes...) check this link for documentation : https://sweetalert.js.org/guides/-->
-		<script type="text/javascript " src="js/sweetalert.js"></script>
+        <script type="text/javascript " src="js/Authentification.js"></script>
+        <script type="text/javascript " src="js/Form.js"></script>
+        <script type="text/javascript " src="js/User.js"></script>
+        <!--Api JS for alerts(Messages Error ans succes...) check this link for documentation : https://sweetalert.js.org/guides/-->
+        <script type="text/javascript " src="js/sweetalert.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript " src="js/camera.js"></script>
 
     </head>
-    <body>
+    <body onload="checkAuthentification()">
         <div class="background">
 
             <!-- LOGIN & SIGNUP CHOICE-->
             <div class="choice" id="choice">
                 <div class="logo-choice">
-                    <img src="img/logo.png" width="110px" height="110px"><br>
-                    <h2>Creative Brains</h2>
-                    <p>Everything you can imagine is real</p>
+                    <img src="img/logo.png" width="110px" height="110px">
+                    <p>
+                        <span>Creative Brains</span> <br>
+                        Everything you can imagine is real
+                    </p>
                 </div>
                 <div class="button-group">
                     <button class="btn siup" onclick='next("choice", "signup")'>SIGN UP</button><br><br>
-                    <button class="btn log" onclick='next("choice", "login")'>LOG IN</button>            
+                    <button class="btn log" onclick='next("choice", "login")'>LOGIN</button>            
                 </div>
             </div>
-            <!-- 009C8E  FFDB6A -->
+            <div class="loader">
+                <div class="loader-inner">
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                    <div class="loader-line-wrap">
+                        <div class="loader-line"></div>
+                    </div>
+                </div>
+            </div>
+
             <!-- LOGIN-->
             <div class="login" id="login">
                 <div class="logo-login">
                     <img src="img/logo.png" width="120px" height="120px"><br>
                 </div>
-                <form>
+                <form id="loginForm">
                     <div class="input-icon">
                         <i class="fas fa-user"></i>
                         <label for="username" class="label">USERNAME</label>
@@ -45,8 +73,8 @@
                         <input type="password" class="input" name="password" id="password">
                     </div>
 
-                    <a href="#">Forget Password?</a><br><br>
-                    <button class="btn log">LOGIN</button><br>
+                    <a onclick='next("login", "reset-password")'>Forget Password?</a><br><br>
+                    <input type="button" class="btn log" onclick='submitForm("loginForm","login.php",signinSuccess)' value="LOGIN"></button><br>
                     <div class="already">
                         not on Creative Brains yet? <a class="link" onclick='next("login", "signup")'>sign up</a>
                     </div>
@@ -58,11 +86,11 @@
                 <div class="logo-login logo-signup">
                     <img src="img/logo.png" width="120px" height="120px"><br>
                 </div>
-                <form>
+                <form id="signUpForm">
                     <div class="input-icon">
                         <i class="fas fa-user"></i>
                         <label for="username-signup" class="label">USERNAME</label>
-                        <input type="text" class="input" name="username-signup" id="username-signup">
+                        <input type="text" class="input" name="username" id="username">
                     </div> <br>
                     <div class="input-icon">
                         <i class="fas fa-envelope"></i>
@@ -72,19 +100,306 @@
                     <div class="input-icon">
                         <i class="fas fa-lock"></i>
                         <label for="password-signup" class="label">PASSWORD</label>
-                        <input type="password" class="input" name="password-signup" id="password-signup">
+                        <input type="password" class="input" name="password" id="password">
                     </div> <br>
                     <div class="input-icon">
                         <i class="fas fa-lock"></i>
                         <label for="confirm-password" class="label">CONFIRM PASSWORD</label>
                         <input type="password" class="input" name="confirm-password" id="confirm-password">
                     </div> <br>
-                    <button class="btn log">SIGN UP</button><br>
+                    <input type="button" class="btn log" onclick='signup ("signUpForm","signup.php")' value="SIGN UP"/><br>
                     <div class="already">
                         already user? <a class="link" onclick='next("signup", "login")'>click here</a>
                     </div>
                 </form>
             </div>
-        </div>
+
+            <!-- RESET PASSWORD-->
+            <div class="reset-password login" id="reset-password">
+                <div class="logo-login">
+                    <img src="img/logo.png" width="120px" height="120px"><br>
+                </div>
+                <form id="restPassword">
+                    <div class="input-icon">
+                        <i class="fas fa-envelope"></i>
+                        <label for="email-reset" class="label">EMAIL</label>
+                        <input type="email" class="input" name="email" id="email">
+                    </div> <br>
+                    <input type="button" class="btn log" onclick='submitForm("restPassword","restPassword.php")' value="RESET"/><br>
+                    <div class="already">
+                        back to <a class="link" onclick='next("reset-password","login")'>login</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Verify-->
+            <div class="verify reset-password login" id="verify">
+                <div class="logo-login">
+                    <img src="img/logo.png" width="120px" height="120px"><br>
+                </div>
+                <form>
+                    <div class="input-icon">
+                        <label for="codeVerification" class="label2">Enter the code</label> <br>
+                        <input type="hidden" name="username" value="" id="hiddenUsername"/>
+                        <input type="text" size="6" class="input2" name="codeVerification" id="codeVerification">
+                    </div> <br>
+                    <input type="button" class="btn log" onclick='verify()' value="VERIFY"/><br>
+                    <div class="already">
+                        back to <a class="link" onclick='next("verify", "signup")'>signup</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Creations Genre choice -->
+            <div class="genre-choice hidden" id="genre-choice">
+                <header>
+                    <span class="q">What kind of creations you like?</span><br>
+                    <span class="s-title">Choose one to start</span>
+                    <span id="counter"></span>
+                    <div id="myProgress">
+                        <div id="myBar"></div>
+                    </div><br>
+                </header>
+                <div class="genres">
+                    <table>
+                        <tr>
+                            <td class="cell">
+                                <div class="genre" id="sound" onclick='selectGenre("sound")'>
+                                    <div>
+                                        <span>sound</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cell" >
+                                <div class="genre" id="photography" onclick='selectGenre("photography")'>
+                                    <div>
+                                        <span>photography</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell">
+                                <div class="genre" id="drawing" onclick='selectGenre("drawing")'>
+                                    <div>
+                                        <span>drawing</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cell" >
+                                <div class="genre" id="design" onclick='selectGenre("design")'>
+                                    <div>
+                                        <span>design</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell">
+                                <div class="genre" id="video" onclick='selectGenre("video")'>
+                                    <div>
+                                        <span>video</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cell" >
+                                <div class="genre" id="painting" onclick='selectGenre("painting")'>
+                                    <div>
+                                        <span>painting</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell">
+                                <div class="genre" id="idea" onclick='selectGenre("idea")'>
+                                    <div>
+                                        <span>idea</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cell" >
+                                <div class="genre" id="writing" onclick='selectGenre("writing")'>
+                                    <div>
+                                        <span>writing</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell">
+                                <div class="genre" id="motivation" onclick='selectGenre("motivation")'>
+                                    <div>
+                                        <span>motivation</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cell" >
+                                <div class="genre" id="travel" onclick='selectGenre("travel")'>
+                                    <div>
+                                        <span>travel</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell">
+                                <div class="genre" id="science" onclick='selectGenre("science")'>
+                                    <div>
+                                        <span>science</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cell" >
+                                <div class="genre" id="books" onclick='selectGenre("books")'>
+                                    <div>
+                                        <span>books</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell">
+                                <div class="genre" id="health" onclick='selectGenre("health")'>
+                                    <div>
+                                        <span>health</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="cell" >
+                                <div class="genre" id="architecture" onclick='selectGenre("architecture")'>
+                                    <div>
+                                        <span>architecture</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="chosing-genre">
+                        <button class="btn log" onclick='next("genre-choice", "home")'>CONTINUE</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home -->
+            <div class="home" id="home">
+                <div class="header">
+                    <span class="menu-icon"><i class="fas fa-bars" onclick="showMenu()"></i></span>
+                    <span class="header-title" id="header-title">Creations</span>
+                    <span class="plus-icon" onclick='next(currentDivId, "newPost")'><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="float-menu" id="float-menu">
+                    <div>
+                        <span onclick='switchPageTo("Creations")'><i class="fas fa-home"></i>Creations</span>
+                        <span onclick='switchPageTo("Profile")'><i class="fas fa-user"></i>Profile</span>
+                        <span onclick='next("float-menu", "setting")'><i class="fas fa-cog"></i>Setting</span>
+                        <span onclick='logout()'><i class="fas fa-sign-out-alt"></i>Logout</span>
+                    </div>
+                </div>
+                <div id="Creations">
+                    <div class="post" id="post">
+                        <header>
+                            <div class="uimg">
+                                <img src="img/static_img/user1.png" width="30px" height="30px">
+                            </div>
+                            <span>maha_el</span>
+                            <span class="time">2h</span>
+                        </header>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Setting -->
+            <div class="setting float-menu" id="setting">
+                <div>
+                    <span onclick='next(currentDivId, "Account"); hide("setting");'><i class="fas fa-user"></i>Account</span>
+                </div>
+            </div>
+
+            <!-- Account-->
+            <div class="accountSetting hidden" id="Account">
+                <div class="header">
+                    <span class="cancel" onclick='next("Account", currentDivId)'>Cancel</span>
+                    <span class="header-title-post">Account Setting</span>
+                    <span class="addpost">Update</span>
+                </div>
+                <h5 style="text-align: center;">USER INFORMATIONS</h5>
+                <div>
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                        <label for="username-setting" class="label">USERNAME</label>
+                        <input type="text" class="input" name="username-setting" id="username-setting" /> 
+                    </div>
+                    <br>
+                    <div class="input-icon">
+                        <i class="fas fa-envelope"></i>
+                        <label for="email-setting" class="label">EMAIL</label>
+                        <input type="email" class="input" name="email-setting" id="email-setting" /> 
+                    </div>
+                    <br>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <label for="old-password-setting" class="label">OLD PASSWORD</label>
+                        <input type="password" class="input" name="old-password-setting" id="old-password-setting" /> 
+                    </div>
+                    <br>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <label for="new-password-setting" class="label">NEW PASSWORD</label>
+                        <input type="password" class="input" name="new-password-setting" id="new-password-setting" /> 
+                    </div>
+                    <br>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <label for="confirm-password-setting" class="label">CONFIRM PASSWORD</label>
+                        <input type="password" class="input" name="confirm-password-setting" id="confirm-password-setting" /> 
+                    </div>         
+                </div>
+                <h5 style="text-align: center;">PROFILE INFORMATIONS</h5>
+                <div>
+                    <div class="input-icon">
+                        <i class="fas fa-address-card"></i>
+                        <label for="description" class="label">ABOUT</label>
+                        <textarea class="description" name="description" id="description"></textarea>
+                    </div>
+                    <br>
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                        <label for="age" class="label">AGE</label>
+                        <input type="text" class="input" name="age" id="age" /> 
+                    </div>
+                    <br>
+                    <div class="input-icon">
+                        <i class="fas fa-venus-mars"></i>
+                        <label for="gender" class="label">GENDER</label> <br>
+                        <select class="select" name="gender" id="gender">
+                            <option value="male" selected>Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <br>       
+                </div>
+            </div>
+
+            <!-- New Post-->
+            <div class="newPost home" id="newPost">
+                <div class="header">
+                    <span class="cancel" onclick='next("newPost", currentDivId)'>Cancel</span>
+                    <span class="header-title-post">Create Post</span>
+                    <input type="button" class="addpost" name="buttonFile" onclick="checkFileAndAddPost()" value="Post">
+                </div>
+                <div class="uimg">
+                    <img src="img/static_img/user1.png" width="50px" height="50px">
+                </div>
+                <span>maha_el</span>
+                <textarea class="postBody" name="postText" id="postText" placeholder="What's on your mind?"></textarea>
+                <img id="img_post_preview" />
+                <p id="msg"></p>
+                <label id="labelFile" for="file"><i class="fas fa-camera"></i></label>
+                <input type="file" class="hidden" name="file" id="file" value="select file"/>
+                <button id="cameraTakePicture"><i class="fas fa-camera"></i></button>
+                
+            </div>
      </body>
+     <script type="text/javascript " src="js/Main.js"></script>
 </html>
