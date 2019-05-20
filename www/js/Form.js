@@ -1,5 +1,5 @@
 
-var serverSideUrl = "http://192.168.1.103/Creative/www/php/";
+var serverSideUrl = "http://127.0.0.1/Creative/www/php/";
 function Form(formName){
 	if(formName == undefined)return;
 	this.inputs = $("#"+formName+" input");

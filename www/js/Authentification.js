@@ -14,6 +14,8 @@ function signinSuccess (result) {
 		next(result['from'],result['to']);
 		window.localStorage.setItem("isIn",true);
 		window.localStorage.setItem("username",result['user']['username']);
+		window.localStorage.setItem("id",result['user']['id']);
+	
 	}else if(result['notVerified']){
 		$("#hiddenUsername").val(result['user']['username']);
 		errorAlert([result['message']]);
