@@ -44,3 +44,12 @@ function errorAlert (result) {
 		});
 		document.getElementById("swal2-content").innerHTML = stringResult;
 }
+
+//simple Alerts
+function AlertSimple(title,message,type){
+	Swal.fire(
+		title,
+		message,
+		type
+	);
+}
