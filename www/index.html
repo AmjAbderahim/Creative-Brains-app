@@ -17,6 +17,9 @@
         <script type="text/javascript " src="js/sweetalert.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript " src="js/camera.js"></script>
+		<script type="text/javascript " src="js/profile.js"></script>
+
+
 
     </head>
     <body onload="checkAuthentification()">
@@ -317,11 +320,13 @@
             </div>
 
             <!-- Account-->
+			<input type="hidden" id="idUser" />
+			<input type="hidden" id="idProfile"/>
             <div class="accountSetting hidden" id="Account">
                 <div class="header">
-                    <span class="cancel" onclick='next("Account", currentDivId)'>Cancel</span>
+                    <span class="cancel" onclick='displayDataSetting();next("Account", currentDivId)'>Cancel</span>
                     <span class="header-title-post">Account Setting</span>
-                    <span class="addpost">Update</span>
+                    <span class="addpost" id="updateUser"  onclick="updateUser()">Update</span>
                 </div>
                 <h5 style="text-align: center;">USER INFORMATIONS</h5>
                 <div>
