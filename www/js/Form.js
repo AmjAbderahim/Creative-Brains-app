@@ -28,7 +28,6 @@ Form.prototype.doPost = function(fileName,success){
 	});
 }
 Form.prototype.doGet = function(fileName,success) {
-	showLoader();
 	if(success == undefined)success = defaultSuccess;
 	$.ajax({
 		type:'GET',

@@ -24,12 +24,12 @@ function submitForm (formName,fileName,success) {
 	return form;
 }
 function successAlert(from,to,message){
+	next(from, to);
 	Swal.fire(
 		'Good job!',
 		message,
 		'success'
 	);
-	next(from, to);
 }
 function errorAlert (result) {
 		console.log(result);
@@ -43,4 +43,32 @@ function errorAlert (result) {
 		  text: "toFill"
 		});
 		document.getElementById("swal2-content").innerHTML = stringResult;
+}
+
+$(document).ready(function(e){
+	$.ajaxSetup({cache:false});
+	setInterval(function(){getPosts()},2300);
+});
+
+function getPosts(){
+	var form = new Form();
+	form.doGet("getPosts.php",successGetPosts);
+}
+
+function successGetPosts(result) {
+	console.log(result);
+	result = JSON.parse(result);
+	console.log(result);
+	$("#Creations").html("");
+	for (var index = 0; index < result.length; index++) {
+		$("#Creations").append(getHTML(result[index]));
+	}
+	
+}
+
+function getHTML(params) {
+	var post = '<div class="post" id="post"><header><div class="uimg"><img src=uploads/'+params["file_name"]+' width="30px" height="30px"></div>';
+        post += '<span>'+params["username"]+'</span>';
+	post += '<span class="time">'+params["date"]+'</span></header></div>';
+	return post;
 }

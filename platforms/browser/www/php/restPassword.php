@@ -13,7 +13,7 @@
 		$message = '
 		This is your new password :
 		'.$password.'
-		and please changed as soon as posible.
+		and please change it as soon as posible.
 		'; // Our message above including the link
 
 		$headers = 'From:galaxy.darbouz@gmail.com' . "\r\n"; // Set from headers
