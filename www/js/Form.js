@@ -50,10 +50,4 @@ function defaultSuccess (result) {
 function defaultError (result) {
 	hideLoader();
 	console.log(result);
-	Swal.fire({
-		type: 'error',
-		title: 'Oops...',
-		text: "Something went wrong",
-		footer:"If this still happen please <a href='#'> contact us.</a>"
-	});
 }

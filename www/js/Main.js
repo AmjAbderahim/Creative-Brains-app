@@ -56,9 +56,7 @@ function getPosts(){
 }
 
 function successGetPosts(result) {
-	console.log(result);
 	result = JSON.parse(result);
-	console.log(result);
 	$("#Creations").html("");
 	for (var index = 0; index < result.length; index++) {
 		$("#Creations").append(getHTML(result[index]));
@@ -67,8 +65,9 @@ function successGetPosts(result) {
 }
 
 function getHTML(params) {
-	var post = '<div class="post" id="post"><header><div class="uimg"><img src=uploads/'+params["file_name"]+' width="30px" height="30px"></div>';
+	var post = '<div class="post" id="post"><header><div class="uimg"><img src="img/static_img/user1.png" width="30px" height="30px"></div>';
         post += '<span>'+params["username"]+'</span>';
-	post += '<span class="time">'+params["date"]+'</span></header></div>';
+	post += '<span class="time">'+params["date"]+'</span></header>';
+	post += '<img src="uploads/'+params["file_name"]+'" style="width:100%;height:30vh;"></div>';
 	return post;
 }

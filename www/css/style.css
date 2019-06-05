@@ -475,7 +475,7 @@ table {
     opacity: 0.4;
 }
 
-.home, .genre-choice, .newPost{
+.home, .genre-choice, .newPost, .postPage{
     width: 90%;
     height: 100%;
     background-color: #fff;
@@ -583,7 +583,7 @@ table {
     margin-top: 0;
 }
 
-.newPost {
+.newPost, .postPage{
     position: absolute;
     top: 0;
     margin-left: -100vw;
@@ -608,7 +608,7 @@ table {
     padding: 2% !important;
 }
 
-.newPost > span {
+.newPost > span, .postPage > span {
     width: 77%;
     font-size: 12px;
     font-family: "RobotoBold";
@@ -616,7 +616,7 @@ table {
     padding: 16px 10px;
 }
 
-.newPost > .uimg, .newPost > span {
+.newPost > .uimg, .newPost > span, .postPage > .uimg, .postPage > span {
     margin: 1vh 0;
 }
 
@@ -695,4 +695,127 @@ table {
 
 .accountSetting > h5 {
     margin-bottom: 1vh;
+}
+
+.profile {
+    width: 100%;
+    height: 92vh;
+    background-color: #fff;
+    display: none;
+}
+
+.user-info-profile > * {
+    margin-top: 10px;
+}
+
+.user-info-profile > .fol > div {
+    margin-left: 20px;
+    font-size: 12px;
+    display: inline;
+    color: #b9b9b9;
+    width: 100%;
+}
+
+.count {
+    font-size: 20px;
+    color: black;
+}
+
+.fol {
+    margin-bottom: 15px;
+}
+
+.uimg-p {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.uimg-p > img {
+    margin-bottom: 10px;
+}
+
+.masonry { /* Masonry container */
+    -webkit-column-count: 4;
+  -moz-column-count:4;
+  column-count: 4;
+  -webkit-column-gap: 1em;
+  -moz-column-gap: 1em;
+  column-gap: 1em;
+    padding: 0;
+    -moz-column-gap: 1.5em;
+    -webkit-column-gap: 1.5em;
+    column-gap: 0.3em;
+    font-size: .85em;
+    margin-top: 0;
+}
+.item {
+    display: inline-block;
+    background: #fff;
+    width: 100%;
+}
+.item img{max-width:100%;}
+
+@media only screen and (max-width: 320px) {
+    .masonry {
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 768px){
+    .masonry {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+@media only screen and (min-width: 769px) and (max-width: 1200px){
+    .masonry {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+@media only screen and (min-width: 1201px) {
+    .masonry {
+        -moz-column-count: 4;
+        -webkit-column-count: 4;
+        column-count: 4;
+    }
+}
+
+#postImage {
+    width: 100%;
+}
+
+#postText {
+    font-family: "Montserrat";
+    font-size: 12px;
+}
+
+.feedback {
+    color: #afafaf;
+    width: 100%;
+}
+
+.feedback > span {
+    width: 45%;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #c7c7c7;
+    padding: 5px;
+}
+
+.feedback > span > i {
+    font-size: 20px;
+}
+
+.liked {
+    color: #fd2346;
+}
+
+.postPage > span {
+    width: 72%;
 }

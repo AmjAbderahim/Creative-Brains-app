@@ -30,36 +30,36 @@
                 $secs = $diff; // what's left is the seconds;
                 if ($secs!=0) 
                 {
-                        $secs .= " seconds";
-                        if ($secs=="1 seconds") $secs = "1 second"; 
+                        $secs .= "s";
+                        if ($secs=="1s") $secs = "1s"; 
                 }
                 else $secs = '';
                 if ($mins!=0) 
                 {
-                        $mins .= " mins ";
-                        if ($mins=="1 mins ") $mins = "1 min "; 
+                        $mins .= "m ";
+                        if ($mins=="1m ") $mins = "1m "; 
                         $secs = '';
                 }
                 else $mins = '';
                 if ($hours!=0) 
                 {
-                        $hours .= " hours ";
-                        if ($hours=="1 hours ") $hours = "1 hour ";             
+                        $hours .= "h ";
+                        if ($hours=="1h ") $hours = "1h ";             
                         $secs = '';
                 }
                 else $hours = '';
                 if ($days!=0) 
                 {
-                        $days .= " days "; 
-                        if ($days=="1 days ") $days = "1 day ";                 
+                        $days .= "d "; 
+                        if ($days=="1d ") $days = "1d ";                 
                         $mins = '';
                         $secs = '';
-                        if ($days == "-1 days ") {
+                        if ($days == "-1d ") {
                         $days = $hours = $mins = '';
                         $secs = "less than 10 seconds";
                         }
                 }
                 else $days = '';
-                return "$days $hours $mins $secs ago";
+                return "$days $hours $mins $secs";
         }
 ?>

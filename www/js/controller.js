@@ -22,7 +22,7 @@ function next(from, to) {
     $("#" + from).animate( {"margin-left": "-100vw"}, 500, "linear" ); 
     $("#" + to).animate( { "opacity": "show", "margin-left": "0vw"} , 500 );
     
-    if(from == "genre-choice") {
+    if(from == "genre-choice" || from == "Profile") {
         $("#" + from).css("display", "none");
     }
 }
@@ -118,4 +118,15 @@ function checkFileAndAddPost () {
     form_data.append('file', file_data);
     form_data.append('username',window.localStorage.getItem("username"));
     (new Form()).doPostWithData("addPost.php",form_data);
+}
+
+
+function openPost(idPost) {
+    next(currentDivId, "postPage");
+    // ghadi t geter limage w dirha hna
+    var image = idPost; // hadi ghir test
+    $("#postImage").attr("src","img/posts/" + image);
+    // ghadi tgeter l text wdiro hna
+    var text = "Sometime we can feel a bit dull in the morning and we need to produce our own sunshine energy."
+    $("#postText").html(text);
 }

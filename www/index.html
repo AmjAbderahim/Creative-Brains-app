@@ -26,7 +26,7 @@
         <div class="background">
 
             <!-- LOGIN & SIGNUP CHOICE-->
-            <div class="choice" id="choice">
+            <div class="choice hidden" id="choice">
                 <div class="logo-choice">
                     <img src="img/logo.png" width="110px" height="110px">
                     <p>
@@ -285,7 +285,7 @@
             </div>
 
             <!-- Home -->
-            <div class="home" id="home">
+            <div class="home" id="home" style="display: block;">
                 <div class="header">
                     <span class="menu-icon"><i class="fas fa-bars" onclick="showMenu()"></i></span>
                     <span class="header-title" id="header-title">Creations</span>
@@ -301,14 +301,104 @@
                 </div>
                 <div id="Creations">
                     <div class="post" id="post">
-                        <header>
-                            <div class="uimg">
-                                <img src="img/static_img/user1.png" width="30px" height="30px">
-                            </div>
-                            <span>maha_el</span>
-                            <span class="time">2h</span>
-                        </header>
+                    
                     </div>
+                </div>
+                <!-- Profile-->
+                <div class="profile" id="Profile">
+                    <div class="user-info-profile">
+                        <div class="uimg uimg-p">
+                            <img src="img/static_img/user1.jpg" width="80px" height="80px"> <br>
+                            <span>Neil DeGrass Tyson</span>
+                        </div>
+                        <div class="fol">
+                            <div>
+                                <span class="count">1.2k</span>
+                                <span>Followers</span>
+                            </div>
+                            <div>
+                                <span class="count">204</span>
+                                <span>Following</span>
+                            </div>
+                            <div>
+                                <span class="count">56</span>
+                                <span>Posts</span>
+                            </div>
+                        </div>
+                        <div class="masonry">
+                          <div class="item">
+                            <img src="img/posts/3.jpg" onclick='openPost("3.jpg");'>
+                            <!-- Hna khass t3adel 3la l'entre de la fonction openPost ghadi t3tiha
+                                l'ID dl post machi l'image w fl body dl fonction openPost ghadi dir dok les changement
+                                (tel 3la l fonction)
+                             -->
+                          </div>
+                          <div class="item">
+                            <img src="img/posts/6.jpg" onclick='openPost("6.jpg");'>
+                          </div>
+                          <div class="item">
+                            <img src="img/posts/8.jpg" onclick='openPost("8.jpg");'>
+                          </div>
+                          <div class="item">
+                            <img src="img/posts/4.jpg" onclick='openPost("4.jpg");'>
+                          </div>
+                          <div class="item">
+                            <img src="img/posts/5.jpg" onclick='openPost("5.jpg");'>
+                          </div>
+                          <div class="item">
+                            <img src="img/posts/2.jpg" onclick='openPost("2.jpg");'>
+                          </div>
+                          <div class="item">
+                            <img src="img/posts/7.jpg" onclick='openPost("7.jpg");'>
+                          </div>
+                          <div class="item">
+                            <img src="img/posts/1.jpg" onclick='openPost("1.jpg");'>
+                          </div>
+                          <div class="item">
+                            <img src="img/posts/9.jpg">
+                          </div>
+                          <div class="item">
+                            <img src="img/posts/10.jpg">
+                          </div>
+                           <div class="item">
+                            <img src="img/posts/11.jpg">
+                          </div>
+                           <div class="item">
+                            <img src="img/posts/12.jpg">
+                          </div>
+                           <div class="item">
+                            <img src="img/posts/13.jpg">
+                          </div>
+                           <div class="item">
+                            <img src="img/posts/14.jpg">
+                          </div>
+                           <div class="item">
+                            <img src="img/posts/15.jpg">
+                          </div>
+                           <div class="item">
+                            <img src="img/posts/16.jpg">
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post Page -->
+            <div class="postPage home" id="postPage">
+                <div class="header">
+                    <span class="cancel" onclick='next("postPage", currentDivId)'>Back</span>
+                    <span class="header-title-post">Post</span>
+                </div>
+                <div class="uimg">
+                    <img src="img/static_img/user1.jpg" width="50px" height="50px">
+                </div>
+                <span>Neil DeGrass Tyson</span>
+                <span class="time">2h</span>
+                <img src="" id="postImage" />
+                <p id="postText"></p>
+                <div class="feedback">
+                    <span>12 <i class="fas fa-comments"></i></span>
+                    <span class="liked">63 <i class="fas fa-sign-language"></i></span>
                 </div>
             </div>
 
@@ -394,17 +484,18 @@
                     <input type="button" class="addpost" name="buttonFile" onclick="checkFileAndAddPost()" value="Post">
                 </div>
                 <div class="uimg">
-                    <img src="img/static_img/user1.png" width="50px" height="50px">
+                    <img src="img/static_img/user1.jpg" width="50px" height="50px">
                 </div>
-                <span>maha_el</span>
+                <span>Neil DeGrass Tyson</span>
                 <textarea class="postBody" name="postText" id="postText" placeholder="What's on your mind?"></textarea>
                 <img id="img_post_preview" />
                 <p id="msg"></p>
-                <label id="labelFile" for="file"><i class="fas fa-camera"></i></label>
+                <label id="labelFile" for="file"><i class="fas fa-image"></i></label>
                 <input type="file" class="hidden" name="file" id="file" value="select file"/>
                 <button id="cameraTakePicture"><i class="fas fa-camera"></i></button>
                 
             </div>
+        </div>
      </body>
      <script type="text/javascript " src="js/Main.js"></script>
 </html>

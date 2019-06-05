@@ -53,7 +53,7 @@ if(trim($dataUsr["username"])=="")
 else{
 if($testPass=="no"){
 
-$q=mysqli_query($con,"UPDATE user SET userName='".$dataUsr['username']."',email='".$dataUsr['email']."' where id=".$_POST["id"]);
+$q=mysqli_query($con,"UPDATE user SET username='".$dataUsr['username']."',email='".$dataUsr['email']."' where id=".$_POST["id"]);
  
 
 }
@@ -70,8 +70,10 @@ else if($dataUsr["new_pass"] != $dataUsr["confirm_pass"]){
 	$errorPass="Password and confirm password does not match !!";
 }
 else
-$q=mysqli_query($con,"UPDATE user SET userName='".$dataUsr['username']."',email='".$dataUsr['email']."',password='".md5($dataUsr['new_pass'])."' where id=".$_POST["id"]);
+$q=mysqli_query($con,"UPDATE user SET username='".$dataUsr['username']."',email='".$dataUsr['email']."',password='".md5($dataUsr['new_pass'])."' where id=".$_POST["id"]);
 }
+}
+
 if($errorPass == null){
  //update profile
  
@@ -117,7 +119,7 @@ else
 
 
 
-}}}
+}}
 
 
 
