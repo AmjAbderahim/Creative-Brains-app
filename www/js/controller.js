@@ -148,7 +148,7 @@ function like(postId) {
 }
 
 function profile(user_id) {
-    // hna l3ob d back end changer les données dl page d profile dayrha statique ana 
+    // hna l3ob d back end changer les données dl page d profile dayrha statique ana
     switchPageTo("Profile");
     next("searchPage", currentDivId);
 }
