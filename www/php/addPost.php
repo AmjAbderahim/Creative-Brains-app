@@ -27,11 +27,11 @@
         $sql = "SELECT * FROM user WHERE username='$username'";
 		$result = mysqli_query($con,$sql);
 		$user = mysqli_fetch_assoc($result);
-		$date = date("\l jS \of F Y h:i:s A");
+		$date = date("Y-m-d H:i:s");
 		$id = $user['id'];
         $query = "INSERT INTO publication(status,date,id_categorie,id_user,file_name) VALUES('$text','$date',0,'$id','$file_name')";
   		mysqli_query($con, $query);
-  		$success = array('success' => true, 'from' => "newPost", 'to' => "home", 'message' => "");
+  		$success = array('success' => true, 'from' => "newPost", 'to' => "Creations", 'message' => "");
         echo json_encode($success);
   	}else{
      	echo json_encode($errors);

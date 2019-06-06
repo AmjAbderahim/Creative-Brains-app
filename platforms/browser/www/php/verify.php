@@ -9,7 +9,7 @@
   	if($user){
   		if($user["verification_code"] == $codeVerification){
   			mysqli_query($con,"UPDATE `user` SET `Actived`=1 where `id`=".$user['id']);
-  			$success = array('success' => true, 'from' => "verify", 'to' => "genre-choice", 'message' => "Welcom to CREATIVE BRAINS");
+  			$success = array('success' => true, 'from' => "verify", 'to' => "genre-choice", 'message' => "Welcom to CREATIVE BRAINS",'user' => $user);
   			echo json_encode($success);
   		}else{
   			array_push($errors, "Verification Code don't much");
