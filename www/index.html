@@ -26,7 +26,7 @@
         <div class="background">
 
             <!-- LOGIN & SIGNUP CHOICE-->
-            <div class="choice hidden" id="choice">
+            <div class="choice" id="choice">
                 <div class="logo-choice">
                     <img src="img/logo.png" width="110px" height="110px">
                     <p>
@@ -285,7 +285,7 @@
             </div>
 
             <!-- Home -->
-            <div class="home" id="home" style="display: block;">
+            <div class="home" id="home">
                 <div class="header">
                     <span class="menu-icon"><i class="fas fa-bars" onclick="showMenu()"></i></span>
                     <span class="header-title" id="header-title">Creations</span>
@@ -295,20 +295,35 @@
                     <div>
                         <span onclick='switchPageTo("Creations")'><i class="fas fa-home"></i>Creations</span>
                         <span onclick='switchPageTo("Profile")'><i class="fas fa-user"></i>Profile</span>
+                        <span onclick='next("float-menu", "searchPage")'><i class="fas fa-search"></i>Search</span>
                         <span onclick='next("float-menu", "setting")'><i class="fas fa-cog"></i>Setting</span>
                         <span onclick='logout()'><i class="fas fa-sign-out-alt"></i>Logout</span>
                     </div>
                 </div>
                 <div id="Creations">
                     <div class="post" id="post">
-                        <header>
-                            <div class="uimg">
-                                <img src="img/static_img/user1.jpg" width="30px" height="30px">
-                            </div>
-                            <span>Neil DeGrass Tyson</span>
-                            <span class="time">2h</span>
-                        </header>
+                        <!-- had onclick nfs l3abi dl profile khkass idPost chof lcomment lte7t fl profile section -->
+                        <div onclick='openPost("11.jpg")'>
+                            <header>
+                                <div class="uimg">
+                                    <img src="img/static_img/user1.jpg" width="30px" height="30px">
+                                </div>
+                                <span>Neil DeGrass Tyson</span>
+                                <span class="time">2h</span>
+                            </header>
+                            <img src="img/posts/11.jpg" class="postImage" />
+                            <p class="postText">
+                                Sometime we can feel a bit dull in the morning and we need to produce our own sunshine energy.
+                            </p>
+                        </div>
+                        <div class="feedback">
+                            <!-- 7ta hadi -->
+                            <span onclick='openPost("11.jpg")'>12 <i class="fas fa-comments"></i></span>
+                            <!-- like(id_post)-->
+                            <span onclick='like("1001")' id="1001"><span id="likesNumber-1001">63</span> <i class="fas fa-sign-language"></i></span>
+                        </div>
                     </div>
+                    <hr>
                 </div>
                 <!-- Profile-->
                 <div class="profile" id="Profile">
@@ -400,11 +415,33 @@
                 </div>
                 <span>Neil DeGrass Tyson</span>
                 <span class="time">2h</span>
-                <img src="" id="postImage" />
-                <p id="postText"></p>
+                <img src="" class="postImage" id="postImage" />
+                <p class="postText" id="postText"></p>
                 <div class="feedback">
                     <span>12 <i class="fas fa-comments"></i></span>
-                    <span class="liked">63 <i class="fas fa-sign-language"></i></span>
+                    <!-- like(id_post)-->
+                    <span onclick='like("1001")' id="p1001"><span id="plikesNumber-1001">63</span> <i class="fas fa-sign-language"></i></span>
+                </div>
+            </div>
+
+            <!-- Search Page -->
+            <div class="searchPage home" id="searchPage">
+                <div class="header">
+                    <span class="cancel" onclick='next("searchPage", currentDivId)'>Back</span>
+                    <input type="text" class="searchInput" placeholder="Search" />
+                </div>
+                <div id="resultSearch" onclick='profile("101")'>
+                    <div class="uimg">
+                        <img src="img/static_img/user1.jpg" width="40px" height="40px">
+                    </div>
+                    <span>Neil DeGrass Tyson</span>
+                </div>
+                <hr>
+                <div id="resultSearch" onclick='profile("102")'>
+                    <div class="uimg">
+                        <img src="img/static_img/user2.png" width="40px" height="40px">
+                    </div>
+                    <span>user1337</span>
                 </div>
             </div>
 
@@ -496,10 +533,15 @@
                 <textarea class="postBody" name="postText" id="postText" placeholder="What's on your mind?"></textarea>
                 <img id="img_post_preview" />
                 <p id="msg"></p>
-                <label id="labelFile" for="file"><i class="fas fa-camera"></i></label>
-                <input type="file" class="hidden" name="file" id="file" value="select file"/>
-                <button id="cameraTakePicture"><i class="fas fa-camera"></i></button>
-                
+                <div class="postBg">
+                    <div class="col-01">
+                        <label class="newPostButton" id="labelFile" for="file"><i class="fas fa-images"></i></label>
+                        <input type="file" class="hidden" name="file" id="file" value="select file"/>                        
+                    </div>
+                    <div class="col-02">
+                        <button class="newPostButton" id="cameraTakePicture"><i class="fas fa-camera"></i></button>                        
+                    </div>
+                </div> 
             </div>
         </div>
      </body>

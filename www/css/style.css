@@ -475,7 +475,7 @@ table {
     opacity: 0.4;
 }
 
-.home, .genre-choice, .newPost, .postPage{
+.home, .genre-choice, .newPost, .postPage, .searchPage{
     width: 90%;
     height: 100%;
     background-color: #fff;
@@ -504,7 +504,7 @@ table {
     text-align: center;
 }
 
-.post > header {
+.post > div > header {
     padding: 7px 0;
    
 }
@@ -513,7 +513,7 @@ table {
     border-radius: 50%;
 }
 
-.post > header > span {
+.post > div > header > span {
     width: 77%;
     font-size: 10px;
     font-family: "RobotoBold";
@@ -583,7 +583,7 @@ table {
     margin-top: 0;
 }
 
-.newPost, .postPage{
+.newPost, .postPage, .searchPage{
     position: absolute;
     top: 0;
     margin-left: -100vw;
@@ -606,9 +606,10 @@ table {
     color: #fff;
     border-radius: 15px;
     padding: 2% !important;
+    border: none;
 }
 
-.newPost > span, .postPage > span {
+.newPost > span, .postPage > span, .searchPage > #resultSearch >span {
     width: 77%;
     font-size: 12px;
     font-family: "RobotoBold";
@@ -630,8 +631,8 @@ table {
     font-family: "Montserrat";
 }
 
-.newPost > button {
-    padding: 4% 45%;
+.newPostButton {
+    padding: 4% 0%;
     border: 1px solid #cecece;
     border-radius: 7px;
     font-size: 28px;
@@ -786,11 +787,11 @@ table {
     }
 }
 
-#postImage {
-    width: 100%;
+.postImage {
+    width: 90vw;
 }
 
-#postText {
+.postText {
     font-family: "Montserrat";
     font-size: 12px;
 }
@@ -818,4 +819,33 @@ table {
 
 .postPage > span {
     width: 72%;
+}
+
+hr {
+    border: 0;
+    background-color: #e6e6e6;
+    color: gray;
+    height: 1px;
+}
+
+.col-01 .col-02 {
+    width: 90vw;
+}
+
+.col-01 > .newPostButton {
+    width: 44vw;
+    float: left;
+    text-align: center;
+}
+
+.col-02 > .newPostButton {
+    width: 44vw;
+    float: right;
+}
+
+.searchInput {
+    width: 70vw;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    padding: 1.5vw;
 }
