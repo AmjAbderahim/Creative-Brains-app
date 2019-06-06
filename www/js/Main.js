@@ -47,7 +47,7 @@ function errorAlert (result) {
 
 $(document).ready(function(e){
 	$.ajaxSetup({cache:false});
-	setInterval(function(){getPosts()},2300);
+	setInterval(function(){getPosts()},5000);
 });
 
 function getPosts(){
@@ -65,9 +65,13 @@ function successGetPosts(result) {
 }
 
 function getHTML(params) {
-	var post = '<div class="post" id="post"><header><div class="uimg"><img src="img/static_img/user1.png" width="30px" height="30px"></div>';
+	var post = '<div class="post" id="post"><div onclick=\'openPost("11.jpg")\'><header><div class="uimg"><img src="img/static_img/user1.jpg" width="30px" height="30px"></div>';
         post += '<span>'+params["username"]+'</span>';
 	post += '<span class="time">'+params["date"]+'</span></header>';
-	post += '<img src="uploads/'+params["file_name"]+'" style="width:100%;height:30vh;"></div>';
+	post += '<img src="uploads/'+params["file_name"]+'" class="postImage"></div>';
+	post += '<p class="postText">' + params["status"] + '</p></div>';
+	post += '<div class="feedback"><span onclick=\'openPost("11.jpg")\'>12 <i class="fas fa-comments"></i></span>';
+	post += '<span onclick=\'like("1001")\' id="1001"><span id="likesNumber-1001">63</span> <i class="fas fa-sign-language"></i></span>';
+	post += '</div></div>';
 	return post;
 }
