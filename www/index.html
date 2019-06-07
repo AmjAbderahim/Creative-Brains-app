@@ -301,15 +301,33 @@
                 </div>
                 <div id="Creations">
                     <div class="post" id="post">
-                    
+                      
+                            <header>
+                                <div class="uimg">
+                                    <img src="img/static_img/user1.jpg" width="30px" height="30px">
+                                </div>
+                                <span>Neil DeGrass Tyson</span>
+                                <span class="time">2h</span>
+                            </header>
+                            <img src="img/posts/11.jpg" class="postImage" style="width:100%;max-height:50vh;"/>
+                            <p class="postText">
+                                Sometime we can feel a bit dull in the morning and we need to produce our own sunshine energy.
+                            </p>
+                     
+                        <div class="feedback">
+                            <!-- 7ta hadi -->
+                            <span onclick='openPost("11.jpg")'>12 <i class="fas fa-comments"></i></span>
+                            <!-- like(id_post)-->
+                            <span onclick='like("1001")' id="1001"><span id="likesNumber-1001">63</span> <i class="fas fa-sign-language"></i></span>
+                        </div>
                     </div>
                 </div>
                 <!-- Profile-->
+                
+                <!-- Profile-->
                 <div class="profile" id="Profile">
                     <div class="user-info-profile">
-                        <div class="uimg uimg-p">
-                            <img src="img/static_img/user1.jpg" width="80px" height="80px"> <br>
-                            <span>Neil DeGrass Tyson</span>
+                        <div class="uimg uimg-p" id="imgUsername">
                         </div>
                         <div class="fol">
                             <div>
@@ -321,140 +339,11 @@
                                 <span>Following</span>
                             </div>
                             <div>
-                                <span class="count">56</span>
+                                <span class="count" id="countPosts"></span>
                                 <span>Posts</span>
                             </div>
                         </div>
-                        <div class="masonry">
-                          <div class="item">
-                            <img src="img/posts/3.jpg" onclick='openPost("3.jpg");'>
-                            <!-- Hna khass t3adel 3la l'entre de la fonction openPost ghadi t3tiha
-                                l'ID dl post machi l'image w fl body dl fonction openPost ghadi dir dok les changement
-                                (tel 3la l fonction)
-                             -->
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/6.jpg" onclick='openPost("6.jpg");'>
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/8.jpg" onclick='openPost("8.jpg");'>
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/4.jpg" onclick='openPost("4.jpg");'>
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/5.jpg" onclick='openPost("5.jpg");'>
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/2.jpg" onclick='openPost("2.jpg");'>
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/7.jpg" onclick='openPost("7.jpg");'>
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/1.jpg" onclick='openPost("1.jpg");'>
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/9.jpg">
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/10.jpg">
-                          </div>
-                           <div class="item">
-                            <img src="img/posts/11.jpg">
-                          </div>
-                           <div class="item">
-                            <img src="img/posts/12.jpg">
-                          </div>
-                           <div class="item">
-                            <img src="img/posts/13.jpg">
-                          </div>
-                           <div class="item">
-                            <img src="img/posts/14.jpg">
-                          </div>
-                           <div class="item">
-                            <img src="img/posts/15.jpg">
-                          </div>
-                           <div class="item">
-                            <img src="img/posts/16.jpg">
-                          </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Profile-->
-                <div class="profile" id="Profile">
-                    <div class="user-info-profile">
-                        <div class="uimg uimg-p">
-                            <img src="img/static_img/user1.jpg" width="80px" height="80px"> <br>
-                            <span>Neil DeGrass Tyson</span>
-                        </div>
-                        <div class="fol">
-                            <div>
-                                <span class="count">1.2k</span>
-                                <span>Followers</span>
-                            </div>
-                            <div>
-                                <span class="count">204</span>
-                                <span>Following</span>
-                            </div>
-                            <div>
-                                <span class="count">56</span>
-                                <span>Posts</span>
-                            </div>
-                        </div>
-                        <div class="masonry">
-                          <div class="item">
-                            <img src="img/posts/3.jpg" onclick='openPost("3.jpg");'>
-                            <!-- Hna khass t3adel 3la l'entre de la fonction openPost ghadi t3tiha
-                                l'ID dl post machi l'image w fl body dl fonction openPost ghadi dir dok les changement
-                                (tel 3la l fonction)
-                             -->
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/6.jpg" onclick='openPost("6.jpg");'>
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/8.jpg" onclick='openPost("8.jpg");'>
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/4.jpg" onclick='openPost("4.jpg");'>
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/5.jpg" onclick='openPost("5.jpg");'>
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/2.jpg" onclick='openPost("2.jpg");'>
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/7.jpg" onclick='openPost("7.jpg");'>
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/1.jpg" onclick='openPost("1.jpg");'>
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/9.jpg">
-                          </div>
-                          <div class="item">
-                            <img src="img/posts/10.jpg">
-                          </div>
-                           <div class="item">
-                            <img src="img/posts/11.jpg">
-                          </div>
-                           <div class="item">
-                            <img src="img/posts/12.jpg">
-                          </div>
-                           <div class="item">
-                            <img src="img/posts/13.jpg">
-                          </div>
-                           <div class="item">
-                            <img src="img/posts/14.jpg">
-                          </div>
-                           <div class="item">
-                            <img src="img/posts/15.jpg">
-                          </div>
-                           <div class="item">
-                            <img src="img/posts/16.jpg">
-                          </div>
+                        <div class="masonry" id="masonry">
                         </div>
                     </div>
                 </div>
@@ -477,6 +366,7 @@
                     <span>12 <i class="fas fa-comments"></i></span>
                     <span class="liked">63 <i class="fas fa-sign-language"></i></span>
                 </div>
+               
             </div>
 
             <!-- Post Page -->
@@ -497,7 +387,6 @@
                     <span class="liked">63 <i class="fas fa-sign-language"></i></span>
                 </div>
             </div>
-
             <!-- Setting -->
             <div class="setting float-menu" id="setting">
                 <div>

@@ -52,7 +52,7 @@ $(document).ready(function(e){
 
 function getPosts(){
 	var form = new Form();
-	form.doGet("getPosts.php",successGetPosts);
+	form.doGet("getPosts.php?username="+window.localStorage.getItem("username"),successGetPosts);
 }
 
 function successGetPosts(result) {
@@ -65,9 +65,39 @@ function successGetPosts(result) {
 }
 
 function getHTML(params) {
-	var post = '<div class="post" id="post"><header><div class="uimg"><img src="img/static_img/user1.png" width="30px" height="30px"></div>';
+	var post = '<div class="post" id="post"><header><div class="uimg"><img src="img/static_img/user1.jpg" width="30px" height="30px"></div>';
         post += '<span>'+params["username"]+'</span>';
 	post += '<span class="time">'+params["date"]+'</span></header>';
-	post += '<img src="uploads/'+params["file_name"]+'" style="width:100%;height:30vh;"></div>';
+	post += '<img src="uploads/'+params["file_name"]+'" style="width:100%;max-height:50vh;">';
+	post += '<p class="postText">'+params["status"]+'</p>';
+	post += '<div class="feedback"><span onclick="openPost("11.jpg")"> ? <i class="fas fa-comments"></i></span>';
+    post += '<span class="'+params["isLiked"]+'" onclick="like('+params["id"]+')" id="1001"><span id="likesNumber-1001">'+params["count"]+'</span> <i class="fas fa-sign-language"></i></span></div></div>';
 	return post;
 }
+
+function like (id) {
+	var form = new Form();
+	form.doGet("like.php?id="+id+"&username="+window.localStorage.getItem("username"),likeSuccess);
+}
+
+function likeSuccess (result) {
+	console.log(result);
+}
+
+function currentProfile () {
+	var form = new Form();
+	form.doGet("getCurrentProfile.php?username="+window.localStorage.getItem("username"),currentProfileSuccess);
+}
+
+function currentProfileSuccess (result) {
+	console.log(result);
+	result = JSON.parse(result);
+	console.log(result);
+	document.getElementById("imgUsername").innerHTML = "<img src='img/static_img/"+result["profile"]["PhotoProfil"]+"' width='80px' height='80px'><br><span>"+result["user"]["username"]+"</span>";
+	document.getElementById("countPosts").innerHTML = result["posts"].length;
+	for (var i = 0; i < result["posts"].length; i++) {
+		document.getElementById("masonry").innerHTML += "<div class='item'><img src='uploads/"+ result["posts"][i]["file_name"] +"' onclick='openPost("+result["posts"][i]["id"]+");'></div>";
+	}
+}
+
+currentProfile ();

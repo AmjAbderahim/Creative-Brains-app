@@ -130,3 +130,25 @@ function openPost(idPost) {
     var text = "Sometime we can feel a bit dull in the morning and we need to produce our own sunshine energy."
     $("#postText").html(text);
 }
+
+/*function like(postId) {
+    if (!$("#" + postId).hasClass("liked")) {
+        $("#" + postId).addClass("liked");
+        $("#p" + postId).addClass("liked");
+        $("#likesNumber-" + postId).html(parseInt($("#likesNumber-" + postId).html()) + 1);
+        $("#plikesNumber-" + postId).html(parseInt($("#plikesNumber-" + postId).html()) + 1);
+        // hna l3ob dl backend
+    } else {
+        $("#" + postId).removeClass("liked");
+        $("#p" + postId).removeClass("liked");
+        $("#likesNumber-" + postId).html(parseInt($("#likesNumber-" + postId).html()) - 1);
+        $("#plikesNumber-" + postId).html(parseInt($("#plikesNumber-" + postId).html()) - 1);
+        // hna l3ob dl backend
+    }
+}*/
+
+function profile(user_id) {
+    // hna l3ob d back end changer les données dl page d profile dayrha statique ana
+    switchPageTo("Profile");
+    next("searchPage", currentDivId);
+}
