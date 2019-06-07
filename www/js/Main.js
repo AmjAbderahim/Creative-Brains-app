@@ -47,7 +47,7 @@ function errorAlert (result) {
 
 $(document).ready(function(e){
 	$.ajaxSetup({cache:false});
-	setInterval(function(){getPosts()},2300);
+	setInterval(function(){getPosts()},5000);
 });
 
 function getPosts(){
@@ -95,9 +95,25 @@ function currentProfileSuccess (result) {
 	console.log(result);
 	document.getElementById("imgUsername").innerHTML = "<img src='img/static_img/"+result["profile"]["PhotoProfil"]+"' width='80px' height='80px'><br><span>"+result["user"]["username"]+"</span>";
 	document.getElementById("countPosts").innerHTML = result["posts"].length;
+	alert("d");
 	for (var i = 0; i < result["posts"].length; i++) {
 		document.getElementById("masonry").innerHTML += "<div class='item'><img src='uploads/"+ result["posts"][i]["file_name"] +"' onclick='openPost("+result["posts"][i]["id"]+");'></div>";
 	}
 }
 
 currentProfile ();
+function search () {
+	var keyWord = document.getElementById("searchField").value;
+	var form = new Form();
+	form.doGet("searchUsers.php?keyword="+keyWord,searchSuccess);
+}
+
+function searchSuccess (result) {
+	console.log(result);
+	result = JSON.parse(result);
+	document.getElementById("searchedResult").innerHTML = "";
+	for (var i = 0; i < result.length; i++) {
+		document.getElementById("searchedResult").innerHTML += "<div id='resultSearch' onclick='profile("+result[i]["id"]+")'><div class='uimg'><img src='img/static_img/"+result[i]["photo"]+"' width='40px' height='40px'></div><span>"+result[i]["username"]+"</span></div><hr>";
+	
+	}
+}
