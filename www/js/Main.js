@@ -66,7 +66,7 @@ function successGetPosts(result) {
 }
 
 function getHTML(params) {
-	var post = '<div class="post" id="post"><div onclick="openPost('+params["id"]+')"><header><div class="uimg"><img src="img/static_img/user1.jpg" width="30px" height="30px"></div>';
+	var post = '<div class="post" id="post"><div onclick="openPost('+params["id"]+')"><header><div class="uimg"><img src="img/static_img/user.png" width="30px" height="30px"></div>';
         post += '<span>'+params["username"]+'</span>';
 	post += '<span class="time">'+params["date"]+'</span></header>';
 	post += '<img class="postImage" src="uploads/'+params["file_name"]+'">';
@@ -95,6 +95,7 @@ function currentProfileSuccess (result) {
 	for (var i = 0; i < result["posts"].length; i++) {
 		document.getElementById("masonry").innerHTML += "<div class='item'><img src='uploads/"+ result["posts"][i]["file_name"] +"' onclick='openPost("+result["posts"][i]["id"]+");'></div>";
 	}
+	document.getElementById("newPostUsername").innerHTML = result["user"]["username"]; // hadi dnew post mais 7chitha hna :)
 }
 
 currentProfile ();

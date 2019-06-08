@@ -307,7 +307,7 @@
                         <div onclick='openPost("11.jpg")'>
                             <header>
                                 <div class="uimg">
-                                    <img src="img/static_img/user1.jpg" width="30px" height="30px">
+                                    <img src="img/static_img/user.png" width="30px" height="30px">
                                 </div>
                                 <span>Neil DeGrass Tyson</span>
                                 <span class="time">2h</span>
@@ -357,7 +357,7 @@
                     <span class="header-title-post">Post</span>
                 </div>
                 <div class="uimg">
-                    <img src="img/static_img/user1.jpg" width="50px" height="50px">
+                    <img src="img/static_img/user.png" width="50px" height="50px">
                 </div>
                 <span id="usernamePost"></span>
                 <img src="" class="postImage" id="postImage" />
@@ -370,21 +370,21 @@
                 <div id="comments">
                     <div class="comment">
                         <div class="uimg">
-                            <img src="img/static_img/user1.jpg" width="30px" height="30px">
+                            <img src="img/static_img/user.png" width="30px" height="30px">
                         </div>
                         <span id="commentContent">My Comment</span>
                     </div>
                     <hr>
                     <div class="comment">
                         <div class="uimg">
-                            <img src="img/static_img/user1.jpg" width="30px" height="30px">
+                            <img src="img/static_img/user.png" width="30px" height="30px">
                         </div>
                         <span id="commentContent">Another Comment</span>
                     </div>
                 </div>
                 <div class="commentPost">
                     <div class="uimg">
-                        <img src="img/static_img/user1.jpg" width="30px" height="30px">
+                        <img src="img/static_img/user.png" width="30px" height="30px">
                     </div>
                     <input type="text" id="commentField" class="searchInput" placeholder="Add comment" />
                     <span onclick="comment('id')"><i class="fas fa-paper-plane"></i></span>
@@ -482,10 +482,10 @@
                     <span class="header-title-post">Create Post</span>
                     <input type="button" class="addpost" name="buttonFile" onclick="checkFileAndAddPost()" value="Post">
                 </div>
-                <div class="uimg">
-                    <img src="img/static_img/user1.jpg" width="50px" height="50px">
+                <div class="uimg"> 
+                    <img src="img/static_img/user.png" width="50px" height="50px">
                 </div>
-                <span>Neil DeGrass Tyson</span>
+                <span id="newPostUsername"></span>
                 <textarea class="postBody" name="postText" id="postText" placeholder="What's on your mind?"></textarea>
                 <img id="img_post_preview" />
                 <p id="msg"></p>

@@ -25,6 +25,10 @@ function next(from, to) {
     if(from == "genre-choice" || from == "Profile" || from == "Creations" || from == "home") {
         $("#" + from).css("display", "none");
     }
+
+    if(to == "searchPage") {
+        $("#Creations").css("display", "none");
+    }
 }
 
 function showMenu() {
@@ -112,7 +116,6 @@ function able() {
 
 function checkFileAndAddPost () {
     var text = $("textarea#postText").val();
-    alert(text);
     var file_data = $('#file').prop('files')[0];   
     var form_data = new FormData();
     form_data.append('text', text);
