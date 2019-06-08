@@ -131,21 +131,16 @@ function openPost(idPost) {
     $("#postText").html(text);
 }
 
-/*function like(postId) {
+function like(postId) {
     if (!$("#" + postId).hasClass("liked")) {
         $("#" + postId).addClass("liked");
         $("#p" + postId).addClass("liked");
         $("#likesNumber-" + postId).html(parseInt($("#likesNumber-" + postId).html()) + 1);
         $("#plikesNumber-" + postId).html(parseInt($("#plikesNumber-" + postId).html()) + 1);
-        // hna l3ob dl backend
-    } else {
-        $("#" + postId).removeClass("liked");
-        $("#p" + postId).removeClass("liked");
-        $("#likesNumber-" + postId).html(parseInt($("#likesNumber-" + postId).html()) - 1);
-        $("#plikesNumber-" + postId).html(parseInt($("#plikesNumber-" + postId).html()) - 1);
-        // hna l3ob dl backend
+        var form = new Form();
+        form.doGet("like.php?id="+postId+"&username="+window.localStorage.getItem("username"),likeSuccess);
     }
-}*/
+}
 
 function profile(user_id) {
     // hna l3ob d back end changer les données dl page d profile dayrha statique ana

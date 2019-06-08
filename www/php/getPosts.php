@@ -24,7 +24,7 @@
                 $res5 = mysqli_query($con, $sql5);
                 $like = mysqli_fetch_assoc($res5);
                 $isLiked = "notLiked";
-                if($like["count"] == 0){
+                if($like["count"] != 0){
                         $isLiked = "liked";
                 }
                 array_push($data, array("id" => $row["id"],"username"=>$username["username"],"status" => $row["status"],"date" => $diff,"id_categorie" => $row["id_categorie"],"id_user" => $row["id_user"],"file_name" => $row["file_name"],"count" => $likes["count"],"isLiked" => $isLiked));

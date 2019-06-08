@@ -71,15 +71,10 @@ function getHTML(params) {
 	post += '<img src="uploads/'+params["file_name"]+'" style="width:100%;max-height:50vh;">';
 	post += '<p class="postText">'+params["status"]+'</p>';
 	post += '<div class="feedback"><span onclick="openPost("11.jpg")"> ? <i class="fas fa-comments"></i></span>';
-    post += '<span class="'+params["isLiked"]+'" onclick="like('+params["id"]+')" id="1001"><span id="likesNumber-1001">'+params["count"]+'</span> <i class="fas fa-sign-language"></i></span></div></div>';
+    post += '<span class="'+params["isLiked"]+'" onclick="like('+params["id"]+')" id="'+params["id"]+'"><span id="likesNumber-'+params["id"]+'">'+params["count"]+'</span> <i class="fas fa-sign-language"></i></span></div></div>';
 	return post;
 }
-
-function like (id) {
-	var form = new Form();
-	form.doGet("like.php?id="+id+"&username="+window.localStorage.getItem("username"),likeSuccess);
-}
-
+getPosts()
 function likeSuccess (result) {
 	console.log(result);
 }
@@ -95,7 +90,6 @@ function currentProfileSuccess (result) {
 	console.log(result);
 	document.getElementById("imgUsername").innerHTML = "<img src='img/static_img/"+result["profile"]["PhotoProfil"]+"' width='80px' height='80px'><br><span>"+result["user"]["username"]+"</span>";
 	document.getElementById("countPosts").innerHTML = result["posts"].length;
-	alert("d");
 	for (var i = 0; i < result["posts"].length; i++) {
 		document.getElementById("masonry").innerHTML += "<div class='item'><img src='uploads/"+ result["posts"][i]["file_name"] +"' onclick='openPost("+result["posts"][i]["id"]+");'></div>";
 	}
