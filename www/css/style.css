@@ -657,6 +657,15 @@ table {
     color: #34314c;
 }
 
+.label {
+    color: #34314c;
+}
+
+.input {
+    border-bottom: 2px solid #9c9c9c;
+    color: #9c9c9c;
+}
+
 .accountSetting > div > .input-icon > i {
     color: #9c9c9c;
 }
@@ -819,3 +828,92 @@ table {
 .postPage > span {
     width: 72%;
 }
+
+.chip {
+
+  display: inline-block;
+  padding: 0 25px;
+  height: 40px;
+  font-size: 16px;
+  line-height: 40px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+  margin-top : 10%;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+.projectRow {
+	font-weight:bold;
+	color:#00b6ff;
+}
+.iconsProject {
+	float:right;
+    margin-left: 70px;
+}
+.iconsProject i{
+	padding:5px;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin-left:20px;
+}
+
+.btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 7px 6px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+#projs{
+    margin-bottom: 40px;
+} 
+ 
+.imageLogo{
+     padding-right:60px;
+     padding-left:40px;
+    height: 160px;
+    width:70%;
+} 
+
+
+#search-data{
+ padding: 10px;
+ border: solid 1px #BDC7D8; 
+ margin-bottom: 20px; 
+ display: inline;
+ width: 80%;
+ 
+}
+
+.searchDiv{
+    width: 80%px;
+    margin:40px auto;
+}
+.search-result{
+ border-bottom:solid 1px #BDC7D8;
+ padding:10px;
+ font-family:Times New Roman;
+ font-size: 20px;color:#3085d6; 
+}
+ 

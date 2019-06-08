@@ -47,9 +47,9 @@ function errorAlert (result) {
 
 //simple Alerts
 function AlertSimple(title,message,type){
-	Swal.fire(
-		title,
-		message,
-		type
-	);
+	Swal.fire({
+	 title:title,
+	 text:message,
+	 type:type
+	});
 }
