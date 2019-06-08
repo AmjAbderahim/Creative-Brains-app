@@ -70,7 +70,7 @@ function getHTML(params) {
 	post += '<span class="time">'+params["date"]+'</span></header>';
 	post += '<img src="uploads/'+params["file_name"]+'" style="width:100%;max-height:50vh;">';
 	post += '<p class="postText">'+params["status"]+'</p>';
-	post += '<div class="feedback"><span onclick="openPost("11.jpg")"> ? <i class="fas fa-comments"></i></span>';
+	post += '<div class="feedback"><span onclick="openPost(`11.jpg`)"> ? <i class="fas fa-comments"></i></span>';
     post += '<span class="'+params["isLiked"]+'" onclick="like('+params["id"]+')" id="'+params["id"]+'"><span id="likesNumber-'+params["id"]+'">'+params["count"]+'</span> <i class="fas fa-sign-language"></i></span></div></div>';
 	return post;
 }
