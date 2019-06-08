@@ -22,7 +22,7 @@ function next(from, to) {
     $("#" + from).animate( {"margin-left": "-100vw"}, 500, "linear" ); 
     $("#" + to).animate( { "opacity": "show", "margin-left": "0vw"} , 500 );
     
-    if(from == "genre-choice" || from == "Profile" || from == "Creations") {
+    if(from == "genre-choice" || from == "Profile" || from == "Creations" || from == "home") {
         $("#" + from).css("display", "none");
     }
 }
@@ -111,13 +111,16 @@ function able() {
 }
 
 function checkFileAndAddPost () {
-    var text = $("#postText").val();
+    var text = $("textarea#postText").val();
+    alert(text);
     var file_data = $('#file').prop('files')[0];   
     var form_data = new FormData();
     form_data.append('text', text);
     form_data.append('file', file_data);
     form_data.append('username',window.localStorage.getItem("username"));
+    $("textarea#postText").val("");
     (new Form()).doPostWithData("addPost.php",form_data);
+    getPosts();
 }
 
 function openPost(idPost) {
@@ -136,6 +139,10 @@ function openPostSuccess(result) {
     // ghadi tgeter l text wdiro hna
     var text = result["status"];
     $("#postText").html(text);
+
+    var feedback = '<span> ? <i class="fas fa-comments"></i></span>';
+        feedback += '<span class="'+result["isLiked"]+'" onclick="like('+result["id"]+')" id="'+result["id"]+'"><span id="likesNumber-'+result["id"]+'">'+result["count"]+'</span> <i class="fas fa-sign-language"></i></span>';
+    $("#pfeedback").html(feedback);
 }
 
 function like(postId) {
@@ -154,6 +161,10 @@ function like(postId) {
         var form = new Form();
         form.doGet("deslike.php?id="+postId+"&username="+window.localStorage.getItem("username"),likeSuccess);
     }
+}
+
+function comment(postId) {
+
 }
 
 function profile(user_id) {

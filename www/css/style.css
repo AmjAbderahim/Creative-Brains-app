@@ -516,16 +516,19 @@ table {
     text-align: center;
 }
 
+.post {
+    margin-bottom: 15px;
+}
+
 .post > div > header {
     padding: 7px 0;
-   
 }
 
 .uimg > img {
     border-radius: 50%;
 }
 
-.post > header > span {
+.post > div > header > span {
     width: 70%;
     font-size: 10px;
     font-family: "RobotoBold";
@@ -538,12 +541,13 @@ table {
 }
 
 .time {
-    width: 15% !important;
+    text-align: right;
+    width: 14% !important;
     padding: 10px 0px !important;
 }
 
 .float-menu {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
@@ -598,6 +602,7 @@ table {
 .newPost, .postPage, .searchPage{
     position: absolute;
     top: 0;
+    left: 0;
     margin-left: -100vw;
 }
 
@@ -860,4 +865,36 @@ hr {
     border: 1px solid #dedede;
     border-radius: 10px;
     padding: 1.5vw;
+}
+
+.commentPost {
+    width: 90vw;
+    height: 6.5vh;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+}
+
+.commentPost > .uimg {
+    margin-right: 5px;
+}
+
+.commentPost > .searchInput {
+    width: 65vw;
+    margin-right: 5px;
+}
+
+.commentPost > span {
+    color: #fd2346;
+}
+
+.comment > #commentContent {
+    font-family: "Montserrat";
+    font-size: 12px;
+    display: inline-block;
+    padding: 7px 10px;
+}
+
+.comment {
+    margin-top: 10px;
 }
