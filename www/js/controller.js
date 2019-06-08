@@ -120,14 +120,21 @@ function checkFileAndAddPost () {
     (new Form()).doPostWithData("addPost.php",form_data);
 }
 
-
 function openPost(idPost) {
+    var form = new Form();
+    form.doGet("openPost.php?idPost="+idPost,openPostSuccess);
+}
+function openPostSuccess(result) {
+    console.log("openPost"+result);
+    result = JSON.parse(result);
     next(currentDivId, "postPage");
     // ghadi t geter limage w dirha hna
-    var image = idPost; // hadi ghir test
-    $("#postImage").attr("src","img/posts/" + image);
+    var image = result["file_name"]; // hadi ghir test
+    $("#postImage").attr("src","uploads/" + image);
+
+    $("#usernamePost").text(window.localStorage.getItem("username"));
     // ghadi tgeter l text wdiro hna
-    var text = "Sometime we can feel a bit dull in the morning and we need to produce our own sunshine energy."
+    var text = result["status"];
     $("#postText").html(text);
 }
 
@@ -139,6 +146,13 @@ function like(postId) {
         $("#plikesNumber-" + postId).html(parseInt($("#plikesNumber-" + postId).html()) + 1);
         var form = new Form();
         form.doGet("like.php?id="+postId+"&username="+window.localStorage.getItem("username"),likeSuccess);
+    } else {
+        $("#" + postId).removeClass("liked");
+        $("#p" + postId).removeClass("liked");
+        $("#likesNumber-" + postId).html(parseInt($("#likesNumber-" + postId).html()) - 1);
+        $("#plikesNumber-" + postId).html(parseInt($("#plikesNumber-" + postId).html()) - 1);
+        var form = new Form();
+        form.doGet("deslike.php?id="+postId+"&username="+window.localStorage.getItem("username"),likeSuccess);
     }
 }
 

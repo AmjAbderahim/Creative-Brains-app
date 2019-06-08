@@ -7,6 +7,9 @@
     $res2 = mysqli_query($con, $sql2);
     $id_user = mysqli_fetch_assoc($res2);
     $id=$id_user["id"];
-    $sql = "INSERT INTO likes(id_user,id_publication,date) VALUES('$id','$post_id',now())";
-    mysqli_query($con, $sql);
+
+	$sql = "DELETE FROM likes WHERE id_user='$id' AND id_publication=$post_id";
+	mysqli_query($con, $sql);
+
+	echo "success";
 ?>
