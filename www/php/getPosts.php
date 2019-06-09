@@ -27,7 +27,10 @@
                 if($like["count"] != 0){
                         $isLiked = "liked";
                 }
-                array_push($data, array("id" => $row["id"],"username"=>$username["username"],"status" => $row["status"],"date" => $diff,"id_categorie" => $row["id_categorie"],"id_user" => $row["id_user"],"file_name" => $row["file_name"],"count" => $likes["count"],"isLiked" => $isLiked));
+                $sql6 = "SELECT count(id) as 'count' FROM commentaires WHERE id_publication =".$row["id"];
+                $res6 = mysqli_query($con, $sql6);
+                $comments = mysqli_fetch_assoc($res6);
+                array_push($data, array("id" => $row["id"],"username"=>$username["username"],"status" => $row["status"],"date" => $diff,"id_categorie" => $row["id_categorie"],"id_user" => $row["id_user"],"file_name" => $row["file_name"],"count" => $likes["count"],"comments"=>$comments["count"],"isLiked" => $isLiked));
 
         }
         echo json_encode($data);

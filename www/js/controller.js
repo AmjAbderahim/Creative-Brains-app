@@ -135,17 +135,26 @@ function openPostSuccess(result) {
     result = JSON.parse(result);
     next(currentDivId, "postPage");
     // ghadi t geter limage w dirha hna
-    var image = result["file_name"]; // hadi ghir test
+    var image = result["post"]["file_name"]; // hadi ghir test
     $("#postImage").attr("src","uploads/" + image);
 
     $("#usernamePost").text(window.localStorage.getItem("username"));
     // ghadi tgeter l text wdiro hna
-    var text = result["status"];
+    var text = result["post"]["status"];
     $("#postText").html(text);
 
-    var feedback = '<span> ? <i class="fas fa-comments"></i></span>';
-        feedback += '<span class="'+result["isLiked"]+'" onclick="like('+result["id"]+')" id="'+result["id"]+'"><span id="likesNumber-'+result["id"]+'">'+result["count"]+'</span> <i class="fas fa-sign-language"></i></span>';
+    var feedback = '<span>'+result["commentsCount"]+' <i class="fas fa-comments"></i></span>';
+        feedback += '<span class="'+result["isLiked"]+'" onclick="like('+result["post"]["id"]+')" id="'+result["post"]["id"]+'"><span id="likesNumber-'+result["post"]["id"]+'">'+result["likes"]+'</span> <i class="fas fa-sign-language"></i></span>';
     $("#pfeedback").html(feedback);
+
+    document.getElementById("comments").innerHTML = "";
+    for (var i = 0; i < result["comments"].length; i++) {
+        var comments = '<div class="comment"><div class="uimg"><img src="img/static_img/'+result["comments"][i]["photo"]+'" width="30px" height="30px"></div>';
+        comments += '<span id="commentContent">'+result["comments"][i]["comment"]+'</span></div><hr>';
+        document.getElementById("comments").innerHTML+=comments;
+    }
+    document.getElementById("addButtonHere").innerHTML = '<div class="uimg"><img src="img/static_img/user.png" width="30px" height="30px"></div><input type="text" id="commentField" class="searchInput" placeholder="Add comment" />';
+    document.getElementById("addButtonHere").innerHTML += '<span onclick="comment('+result["post"]["id"]+')"><i class="fas fa-paper-plane"></i></span>';
 }
 
 function like(postId) {
@@ -166,10 +175,15 @@ function like(postId) {
     }
 }
 
-function comment(postId) {
-
+function comment(idPost) {
+    var form = new Form();
+    var comment = document.getElementById("commentField").value;
+    form.doGet("addComment.php?idPost="+idPost+"&username="+window.localStorage.getItem("username")+"&comment="+comment,addCommentSuccess);
 }
-
+function addCommentSuccess (result) {
+    console.log(result);
+    openPost(result);
+}
 function profile(user_id) {
     // hna l3ob d back end changer les données dl page d profile dayrha statique ana
     switchPageTo("Profile");

@@ -81,7 +81,7 @@ function getHTML(params) {
 	post += '<span class="time">'+params["date"]+'</span></header>';
 	post += '<img class="postImage" src="uploads/'+params["file_name"]+'">';
 	post += '<p class="postText">'+params["status"]+'</p>';
-	post += '</div><div class="feedback"><span onclick="openPost('+params["id"]+')"> ? <i class="fas fa-comments"></i></span>';
+	post += '</div><div class="feedback"><span onclick="openPost('+params["id"]+')"> '+params["comments"]+' <i class="fas fa-comments"></i></span>';
     post += '<span class="'+params["isLiked"]+'" onclick="like('+params["id"]+')" id="'+params["id"]+'"><span id="likesNumber-'+params["id"]+'">'+params["count"]+'</span> <i class="fas fa-sign-language"></i></span></div></div>';
 	return post;
 }
