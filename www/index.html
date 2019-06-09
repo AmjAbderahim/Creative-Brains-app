@@ -18,7 +18,9 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript " src="js/camera.js"></script>
 		<script type="text/javascript " src="js/profile.js"></script>
-
+<!-- jQuery Modal -->
+<script src="js/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="css/jquery.modal.min.css" />
 
     </head>
     <body onload="checkAuthentification()">
@@ -294,6 +296,7 @@
                     <div>
                         <span onclick='switchPageTo("Creations")'><i class="fas fa-home"></i>Creations</span>
                         <span onclick='switchPageTo("Profile")'><i class="fas fa-user"></i>Profile</span>
+ 						<span onclick='switchPageTo("Projects"),setProjectsData()'><i class="fas fa-project-diagram"></i>Projects</span>
                         <span onclick='next("float-menu", "searchPage")'><i class="fas fa-search"></i>Search</span>
                         <span onclick='next("float-menu", "setting")'><i class="fas fa-cog"></i>Setting</span>
                         <span onclick='logout()'><i class="fas fa-sign-out-alt"></i>Logout</span>
@@ -349,6 +352,87 @@
                         </div>
                     </div>
                 </div>
+
+<div id="ex1" class="modal">
+    <input type="hidden" id="inviteToProject" />
+<span class="addpost"  onclick="inviteUsers()">Invite Users</span>
+ <div class="searchDiv">
+<div id="search-box-container" >
+ <input  type="text"  onkeyup="addMembers(this)" id="search-data" name="searchData" placeholder="Search.." />
+ </div>
+
+<div id="search-result-container">
+</div>
+</div>
+</div>
+                <!-- Project-->
+                <div class="profile" id="Projects">           
+               
+	<div id="projs">
+
+       <div class="header">
+                     <span class="header-title-post"></span>
+                    <span class="cancel"  id="cancelProject" ></span>
+                    <span class="addpost" onclick="FormProject()"><i class="fa fa-plus"></i></span>
+                </div>
+
+    </div>
+
+            <div id="addProject" class="hidden">
+                     <div class="header">
+                <span class="cancel" id="cancelProject" onclick='canceladdProject()'>Cancel</span>
+                    <span class="header-title-post"></span>
+                    <span class="addpost" id="FormProject"  onclick="AddProject()">Save</span>
+                </div>
+                   <br><br>
+                    <input id="id-project" type="hidden" />
+                    <div class="input-icon">
+                         <label for="name-project" class="label">NAME</label>
+                         <input type="text" class="input" name="name-project" id="name-project" /> 
+                    </div>
+                    <br>
+                <div class="input-icon">
+                         <label for="name-project" class="label">Logo</label><br/><br/>
+                         <div class="upload-btn-wrapper">
+                          <button class="btn"><i class="fa fa-download" /></i>  Upload an Image</button>
+                          <input type="file" id="mylogofile" onchange="readURL(this)" />
+                         </div>
+                        <img id="mylogofileImg" class="imageLogo">
+
+                </div>
+                <br>
+                   <div class="input-icon">
+                        <label for="category-project" class="label">Category</label> <br>
+                        <select style="background:white" class="select" name="category-project" id="category-project">
+                                        <option value="Drawing">Drawing</option>
+                                        <option value="Art">Art</option>
+                                        <option value="Music">Music</option>
+                                        <option value="design">design</option>
+                                        <option value="video">video</option>
+                                        <option value="painting">painting</option>
+                                        <option value="idea">idea</option>
+                                        <option value="writing">writing</option>
+                                        <option value="motivation">motivation</option>
+                                        <option value="travel">travel</option>
+                                        <option value="science">science</option>
+                                        <option value="books">books</option>
+                                        <option value="health">health</option>
+                                        <option value="architecture">architecture</option>
+                        </select>
+                    </div>
+                    <br> 
+
+                     <div class="input-icon">
+                         <label for="description-project" class="label">DESCRIPTION</label>
+                        <textarea  class="description" name="description-project" 
+                         id="description-project" ></textarea>
+                    </div>
+                    <br>       
+                </div>
+ 
+                 
+		        </div>
+
 
             <!-- Post Page -->
             <div class="postPage home" id="postPage">

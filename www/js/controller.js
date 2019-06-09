@@ -143,6 +143,9 @@ function openPostSuccess(result) {
     var text = result["status"];
     $("#postText").html(text);
 
+}
+
+
     var feedback = '<span> ? <i class="fas fa-comments"></i></span>';
         feedback += '<span class="'+result["isLiked"]+'" onclick="like('+result["id"]+')" id="'+result["id"]+'"><span id="likesNumber-'+result["id"]+'">'+result["count"]+'</span> <i class="fas fa-sign-language"></i></span>';
     $("#pfeedback").html(feedback);
@@ -175,3 +178,4 @@ function profile(user_id) {
     switchPageTo("Profile");
     next("searchPage", currentDivId);
 }
+
