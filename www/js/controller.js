@@ -22,8 +22,12 @@ function next(from, to) {
     $("#" + from).animate( {"margin-left": "-100vw"}, 500, "linear" ); 
     $("#" + to).animate( { "opacity": "show", "margin-left": "0vw"} , 500 );
     
-    if(from == "genre-choice" || from == "Profile") {
+    if(from == "genre-choice" || from == "Profile" || from == "Creations" || from == "home") {
         $("#" + from).css("display", "none");
+    }
+
+    if(to == "searchPage") {
+        $("#Creations").css("display", "none");
     }
 }
 
@@ -111,22 +115,67 @@ function able() {
 }
 
 function checkFileAndAddPost () {
-    var text = $("#postText").val();
+    var text = $("textarea#postText").val();
     var file_data = $('#file').prop('files')[0];   
     var form_data = new FormData();
     form_data.append('text', text);
     form_data.append('file', file_data);
     form_data.append('username',window.localStorage.getItem("username"));
+    $("textarea#postText").val("");
     (new Form()).doPostWithData("addPost.php",form_data);
+    getPosts();
 }
-
 
 function openPost(idPost) {
+    var form = new Form();
+    form.doGet("openPost.php?idPost="+idPost,openPostSuccess);
+}
+function openPostSuccess(result) {
+    console.log("openPost"+result);
+    result = JSON.parse(result);
     next(currentDivId, "postPage");
     // ghadi t geter limage w dirha hna
-    var image = idPost; // hadi ghir test
-    $("#postImage").attr("src","img/posts/" + image);
+    var image = result["file_name"]; // hadi ghir test
+    $("#postImage").attr("src","uploads/" + image);
+
+    $("#usernamePost").text(window.localStorage.getItem("username"));
     // ghadi tgeter l text wdiro hna
-    var text = "Sometime we can feel a bit dull in the morning and we need to produce our own sunshine energy."
+    var text = result["status"];
     $("#postText").html(text);
+
 }
+
+
+    var feedback = '<span> ? <i class="fas fa-comments"></i></span>';
+        feedback += '<span class="'+result["isLiked"]+'" onclick="like('+result["id"]+')" id="'+result["id"]+'"><span id="likesNumber-'+result["id"]+'">'+result["count"]+'</span> <i class="fas fa-sign-language"></i></span>';
+    $("#pfeedback").html(feedback);
+}
+
+function like(postId) {
+    if (!$("#" + postId).hasClass("liked")) {
+        $("#" + postId).addClass("liked");
+        $("#p" + postId).addClass("liked");
+        $("#likesNumber-" + postId).html(parseInt($("#likesNumber-" + postId).html()) + 1);
+        $("#plikesNumber-" + postId).html(parseInt($("#plikesNumber-" + postId).html()) + 1);
+        var form = new Form();
+        form.doGet("like.php?id="+postId+"&username="+window.localStorage.getItem("username"),likeSuccess);
+    } else {
+        $("#" + postId).removeClass("liked");
+        $("#p" + postId).removeClass("liked");
+        $("#likesNumber-" + postId).html(parseInt($("#likesNumber-" + postId).html()) - 1);
+        $("#plikesNumber-" + postId).html(parseInt($("#plikesNumber-" + postId).html()) - 1);
+        var form = new Form();
+        form.doGet("deslike.php?id="+postId+"&username="+window.localStorage.getItem("username"),likeSuccess);
+    }
+}
+
+function comment(postId) {
+
+}
+
+function profile(user_id) {
+    // hna l3ob d back end changer les données dl page d profile dayrha statique ana
+    switchPageTo("Profile");
+    next("searchPage", currentDivId);
+}
+
