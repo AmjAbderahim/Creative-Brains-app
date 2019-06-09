@@ -992,6 +992,10 @@ hr {
     color: #fd2346;
 }
 
+#comments {
+    margin-bottom: 8.5vh;
+}
+
 .comment > #commentContent {
     font-family: "Montserrat";
     font-size: 12px;
