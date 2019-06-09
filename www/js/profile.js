@@ -25,12 +25,22 @@
   success:function (data){
 	  console.log(data)
 if(data!="success" && data["success"] != true){
-	
-        AlertSimple("Oops !",data, "error");
+		
+		
+		
+		Swal.fire({
+		  type: 'error',
+		  title: 'Oops...',
+		  text: data
+		});
 
 }
 else{
-            AlertSimple("Good Job !","Your Data is Saved with success..!!", "success");
+	Swal.fire(
+		'Good job!',
+		"Your Data is Saved with success..!!",
+		'success'
+	);
 	
 	//if informations of profile setted for the First Time
    	  if(data["id"] != null)
@@ -44,8 +54,13 @@ else{
 
   },
   error:function (jqXHR, textStatus, errorThrown) {
+	  
+	  Swal.fire({
+		  type: 'error',
+		  title: 'Oops...',
+		  text: "Something went wrong !"
+		});
                
-           AlertSimple("Oops !", "Something went wrong !", "error");
 
                 console.log('jqXHR:');
                 console.log(jqXHR);
@@ -54,10 +69,6 @@ else{
                 console.log('errorThrown:');
                 console.log(errorThrown); 
             }
-
- 
-    
-   
 }); 
 
 }
@@ -92,7 +103,11 @@ if(data.profile != null){
   },
   error:function (jqXHR, textStatus, errorThrown) {
                
-            AlertSimple("Oops !", "Something went wrong !", "error");
+			Swal.fire({
+			  type: 'error',
+			  title: 'Oops...',
+			  text: "Something went wrong !"
+			});
 
                 console.log('jqXHR:');
                 console.log(jqXHR);
@@ -101,6 +116,8 @@ if(data.profile != null){
                 console.log('errorThrown:');
                 console.log(errorThrown); 
             }
+			
+			
 
  
     

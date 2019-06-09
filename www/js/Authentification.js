@@ -46,10 +46,12 @@ function logout() {
 	hideMenu();
 	next("home","choice");
 }
+
 function killSession () {
 	window.localStorage.removeItem("isIn");
 	window.localStorage.removeItem("username");
 }
+
 function openSession (username) {
 	window.localStorage.setItem("isIn",true);
 	window.localStorage.setItem("username",username);
