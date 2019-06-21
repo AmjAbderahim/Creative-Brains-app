@@ -58,7 +58,7 @@ function AlertSimple(title,message,type){
 $(document).ready(function(e){
 	$.ajaxSetup({cache:false});
 	getPosts();
-	setInterval(function(){getPosts()},100000);
+	setInterval(function(){getPosts()},10000);
 });
 
 function getPosts(){

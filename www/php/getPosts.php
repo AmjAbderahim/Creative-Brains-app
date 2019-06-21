@@ -1,7 +1,7 @@
 <?php
 	include 'db.php';
         $current_username = $_GET["username"];
-        $sql = "SELECT * FROM publication";
+        $sql = "SELECT * FROM publication ORDER BY date DESC";
         $res = mysqli_query($con, $sql);
         $data = array();
         while($row = mysqli_fetch_assoc($res)) {

@@ -146,6 +146,7 @@ function setProjectsData(){
      },
   dataType: "json",
   success:function (data){
+    $("#projs .chip").remove();
     div=$("#projs");
     var html='';
 for (var i =0;i<data.length;i++) {

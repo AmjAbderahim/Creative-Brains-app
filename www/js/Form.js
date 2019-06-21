@@ -41,8 +41,10 @@ function defaultSuccess (result) {
 	console.log(result);
 	result = JSON.parse(result);
 	hideLoader();
+
 	if(result['success']){
 		successAlert(result['from'],result['to'],result['message']);
+		getPosts();
 	}else{
 		errorAlert(result);
 	}
