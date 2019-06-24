@@ -123,12 +123,12 @@ function checkFileAndAddPost () {
     form_data.append('username',window.localStorage.getItem("username"));
     $("textarea#postText").val("");
     (new Form()).doPostWithData("addPost.php",form_data);
-    getPosts();
+  
 }
 
 function openPost(idPost) {
     var form = new Form();
-    form.doGet("openPost.php?idPost="+idPost,openPostSuccess);
+    form.doGet("openPost.php?idPost="+idPost+"&username="+window.localStorage.getItem("username"),openPostSuccess);
 }
 function openPostSuccess(result) {
     console.log("openPost"+result);
@@ -144,7 +144,7 @@ function openPostSuccess(result) {
     $("#postText").html(text);
 
     var feedback = '<span>'+result["commentsCount"]+' <i class="fas fa-comments"></i></span>';
-        feedback += '<span class="'+result["isLiked"]+'" onclick="like('+result["post"]["id"]+')" id="'+result["post"]["id"]+'"><span id="likesNumber-'+result["post"]["id"]+'">'+result["likes"]+'</span> <i class="fas fa-sign-language"></i></span>';
+        feedback += '<span class="'+result["isLiked"]+'" onclick="like('+result["post"]["id"]+')" id="p'+result["post"]["id"]+'"><span id="plikesNumber-'+result["post"]["id"]+'">'+result["likes"]+'</span> <i class="fas fa-sign-language"></i></span>';
     $("#pfeedback").html(feedback);
 
     document.getElementById("comments").innerHTML = "";
